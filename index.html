@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yu-Chao (Morris) Huang</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #ecf0f1;
+            --border-color: #ddd;
+            --nav-bg: #34495e;
+            --nav-hover: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #ffffff;
+            padding-top: 60px; /* Space for fixed navbar */
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--nav-bg);
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .nav-brand {
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: var(--nav-hover);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--nav-bg);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--nav-hover);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid var(--border-color);
+            background-color: var(--light-bg);
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-image-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .subtitle a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .subtitle a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .intro {
+            margin-bottom: 40px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .intro a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .intro a:hover {
+            text-decoration: underline;
+        }
+
+        /* Equation Section */
+        .equation-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        /* Research Interests */
+        .research-interests {
+            margin: 40px 0;
+        }
+
+        .research-interests h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .research-interests ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .research-interests li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .research-interests li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .publications-links {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .publications-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 3px;
+        }
+
+        /* Quote Section */
+        .quote {
+            margin: 40px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+            font-style: italic;
+            text-align: center;
+        }
+
+        .quote-author {
+            margin-top: 10px;
+            font-style: normal;
+            color: #666;
+        }
+
+        /* News Section */
+        .news {
+            margin: 40px 0;
+        }
+
+        .news h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .news-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .news-item:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
+        .news-date {
+            font-weight: bold;
+            color: #666;
+        }
+
+        .news-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Demo Section */
+        .demo-section {
+            margin: 50px 0;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .demo-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .demo-content {
+            line-height: 1.8;
+        }
+
+        .demo-content a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .demo-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mathematical Notation */
+        .math {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: var(--nav-bg);
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-item {
+                margin: 0;
+                width: 100%;
+            }
+
+            .nav-link {
+                display: block;
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                box-shadow: none;
+                background-color: rgba(0,0,0,0.1);
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Morris Huang</a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link">Publications</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Misc ▼</a>
+                    <div class="dropdown-content">
+                        <a href="projects.html">Projects</a>
+                        <a href="teaching.html">Teaching</a>
+                        <a href="resources.html">Resources</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="profile-image">
+                <div class="profile-image-placeholder">
+                    <!-- 在此处放置头像图片 -->
+                    <!-- <img src="images/profile.jpg" alt="Morris Huang"> -->
+                    [头像图片]
+                </div>
+            </div>
+            <h1>Yu-Chao (Morris) Huang</h1>
+            <div class="subtitle">
+                Incoming PhD Student @ <a href="https://cs.unc.edu/">University of North Carolina, Chapel Hill</a>
+            </div>
+        </div>
+
+        <!-- Introduction -->
+        <div class="intro">
+            <p>
+                Hey, my name is Yu-Chao Huang (黃禹超 in Chinese). I also go by Morris. I am an incoming PhD student at 
+                <a href="https://cs.unc.edu/">UNC CS</a>, advised by <a href="https://tianlong-chen.github.io/">Prof. Tianlong Chen</a> 
+                and <a href="https://www.acmlab.org/">Prof. Guorong Wu</a>. Previously, I had the opportunity to intern at 
+                <a href="https://www.mccormick.northwestern.edu/computer-science/">NU</a>, working under 
+                <a href="https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/liu-han.html">Prof. Han Liu</a> 
+                in the <a href="https://magics.cs.northwestern.edu/">MAGICS</a> lab. Before that, I earned M.Sc. in Physics under 
+                the guidance of <a href="https://www.phys.ntu.edu.tw/enphysics/goan.html">Prof. Hsi-Sheng Goan</a> at 
+                <a href="https://www.ntu.edu.tw/english/">National Taiwan University</a> followed by research assistant position at 
+                <a href="https://phys.ncts.ntu.edu.tw">National Center for Theoretical Sciences</a>.
+            </p>
+        </div>
+
+        <!-- Equation Section -->
+        <div class="equation-section">
+            The equation |Morris⟩ = α |AI⟩ + β |Science⟩ reflects my superposition of research passion at the intersection of AI and science.
+        </div>
+
+        <!-- Research Interests -->
+        <div class="research-interests">
+            <p>My research interests lie in following directions:</p>
+            <ul>
+                <li>
+                    Developing methodologies with theoretical guarantees to ensure both optimality and practical applicability. 
+                    <span class="publications-links">
+                        [<a href="https://arxiv.org/abs/2404.03830">ICML'24</a>,
+                        <a href="https://arxiv.org/abs/2407.14761">ArXiv</a>,
+                        <a href="https://arxiv.org/abs/2411.06828">ArXiv</a>]
+                    </span>
+                </li>
+                <li>
+                    Theoretical understanding of the computational and statistical properties of deep learning models. 
+                    <span class="publications-links">
+                        [<a href="https://arxiv.org/abs/2411.17522">ICLR'25</a>]
+                    </span>
+                </li>
+                <li>
+                    Tackling interdisciplinary scientific problems from the machine learning perspective — physics-based modeling, quantum computing. 
+                    <span class="publications-links">
+                        [<a href="https://arxiv.org/abs/2407.14761">ArXiv</a>,
+                        <a href="https://arxiv.org/abs/2411.06828">ArXiv</a>]
+                    </span>
+                </li>
+                <li>
+                    Advancing domain adaptation and scientific discovery frameworks for Large Language Models. 
+                    <span class="publications-links">
+                        [<a href="https://aclanthology.org/2024.findings-emnlp.969/">EMNLP'24</a>]
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+        <p style="text-align: center; margin: 30px 0;">
+            Feel free to reach out if you think we should <a href="mailto:morris@cs.unc.edu" style="color: var(--secondary-color);">connect</a>!
+        </p>
+
+        <!-- Quote -->
+        <div class="quote">
+            <p>Somewhere, something incredible is waiting to be known.</p>
+            <p class="quote-author">— Carl Sagan</p>
+        </div>
+
+        <!-- News Section -->
+        <div class="news">
+            <h2>News</h2>
+            <div class="news-item">
+                <span class="news-date">[Apr, 2025]</span> ~ $ Starting my PhD study at 
+                <a href="https://www.unc.edu/">University of North Carolina at Chapel Hill</a> this Fall. 🎉 
+                I've set some <a href="news/phd_goals.html">ambitious goals</a>!
+            </div>
+            <div class="news-item">
+                <span class="news-date">[Mar, 2025]</span> ~ $ Paper accepted to ICLR'25 DeLTa Workshop: 
+                <a href="https://openreview.net/forum?id=o1FZgkcL2g">Statistical Foundations of Conditional Diffusion Transformers</a>.
+            </div>
+            <div class="news-item">
+                <span class="news-date">[Jan, 2025]</span> ~ $ Paper accepted to ICLR'25: 
+                <a href="https://arxiv.org/abs/2411.17522">On Statistical Rates of Conditional Diffusion Transformer: Approximation and Estimation</a>.
+            </div>
+            <div class="news-item">
+                <span class="news-date">[Nov, 2024]</span> ~ $ New preprint! 
+                <a href="https://arxiv.org/abs/2411.06828">QTTT</a>, a test-time training framework using quantum auto-encoders to adapt to data shifts and circuit noise.
+            </div>
+            <div class="news-item">
+                <span class="news-date">[Sep, 2024]</span> ~ $ Paper accepted to EMNLP'24 Findings: 
+                <a href="https://aclanthology.org/2024.findings-emnlp.969/">Two Tales of Persona in LLMs: A Survey of Role-Playing and Personalization</a>.
+            </div>
+            <div class="news-item">
+                <span class="news-date">[Jul, 2024]</span> ~ $ New preprint! 
+                <a href="https://arxiv.org/abs/2407.14761">L2O-g†</a> is a quantum-aware learned optimizer that leverages quantum geometry and LSTM networks to efficiently train variational quantum algorithms (VQAs) with strong generalization and no hyperparameter tuning.
+            </div>
+            <div class="news-item">
+                <span class="news-date">[May, 2024]</span> ~ $ Paper accepted to ICML'24: 
+                <a href="https://arxiv.org/abs/2404.03830">BiSHop: Bi-Directional Cellular Learning for Tabular Data with Generalized Sparse Modern Hopfield Model</a>.
+            </div>
+        </div>
+
+        <p style="margin: 30px 0; text-align: center;">
+            <a href="publications.html" style="color: var(--secondary-color); font-weight: bold;">[Selected Publications]</a>
+        </p>
+        <p style="text-align: center; color: #666; font-style: italic;">
+            * These authors contributed equally to this work.
+        </p>
+
+        <!-- Demo Section -->
+        <div class="demo-section">
+            <h2>Machine Learning Demo - Hopfield Networks</h2>
+            <div class="demo-content">
+                <p style="margin-bottom: 15px;">
+                    🥁 🥁 The Nobel Prize in Physics 2024 is awarded to John Hopfield and Geoffrey Hinton! 
+                    (see <a href="https://www.nobelprize.org/prizes/physics/2024/summary/">here</a>)
+                </p>
+                <p style="margin-bottom: 15px;">
+                    The Hopfield network is inspired by the Ising model. Hopfield network acts as a dynamic energy system where neurons interact to reach stable, low-energy states, similar to particles finding equilibrium in a physical system. The energy function is given by
+                </p>
+                <p style="text-align: center; margin: 20px 0; font-family: 'Times New Roman', serif; font-style: italic; font-size: 1.1em;">
+                    E = -½ Σ<sub>i≠j</sub> W<sub>ij</sub> s<sub>i</sub> s<sub>j</sub> - Σ<sub>i</sub> b<sub>i</sub> s<sub>i</sub>
+                </p>
+                <p style="margin-bottom: 15px;">
+                    where neuron interactions mimic energy exchanges, guiding the network to "remember" stored patterns 
+                    (see a <a href="https://ml-jku.github.io/hopfield-layers/">nice blog post</a>).
+                </p>
+                <p>
+                    Check out our paper on utilizing modern Hopfield networks for tabular learning 
+                    <a href="https://proceedings.mlr.press/v235/xu24l.html">[ICML'24]</a>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Yu-Chao (Morris) Huang. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('navMenu');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (!navMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Handle dropdown on mobile
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
