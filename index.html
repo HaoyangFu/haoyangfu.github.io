@@ -787,9 +787,9 @@
             <div class="research-interests">
                 <h2>Research Interests</h2>
                 <ul>
-                    <li>AI-assisted discovery of catalysts for enhanced Fenton catalysis</li>
-                    <li>Structural engineering of nanomaterials for catalytic upvaluing of emerging pollutants</li>
-                    <li>Investigation of particle growth mechanisms and shape anisotropy using Cs-TEM and liquid-cell TEM</li>
+                    <p>AI-assisted discovery of catalysts for enhanced Fenton catalysis
+                    <p>Structural engineering of nanomaterials for catalytic upvaluing of emerging pollutants
+                    <p>Investigation of particle growth mechanisms and shape anisotropy using Cs-TEM and liquid-cell TEM
                 </ul>
             </div>
 
@@ -1079,5 +1079,72 @@
             });
         });
     </script>
+     <script>
+        // 您现有的 JavaScript 代码，例如 toggleMobileMenu 等
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('navMenu');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (navMenu && mobileToggle && !navMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Handle dropdown on mobile
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        });
+    </script>
+
+    <script> // 新闻按钮的 JavaScript 代码可以放在这里的一个新的 <script> 标签内
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- 新闻按钮的逻辑从这里开始 ---
+        const newsContainer = document.querySelector('.news');
+        if (newsContainer) {
+            const allNewsItems = newsContainer.querySelectorAll('.news-item');
+            const newsItemsArray = Array.from(allNewsItems);
+            const toggleButton = document.getElementById('toggleNewsButton');
+            const initialShowCount = 10;
+            let showingAll = false;
+
+            if (toggleButton && newsItemsArray.length > initialShowCount) {
+                for (let i = initialShowCount; i < newsItemsArray.length; i++) {
+                    newsItemsArray[i].classList.add('hidden-news-item');
+                }
+                toggleButton.style.display = 'block';
+                const hiddenCount = newsItemsArray.length - initialShowCount;
+                toggleButton.textContent = `More News (${hiddenCount} more)`;
+
+                toggleButton.addEventListener('click', function() {
+                    showingAll = !showingAll;
+                    for (let i = initialShowCount; i < newsItemsArray.length; i++) {
+                        newsItemsArray[i].classList.toggle('hidden-news-item');
+                    }
+                    if (showingAll) {
+                        toggleButton.textContent = 'Show Less News';
+                    } else {
+                        toggleButton.textContent = `More News (${hiddenCount} more)`;
+                    }
+                });
+            } else if (toggleButton) {
+                toggleButton.style.display = 'none';
+            }
+        }
+        // --- 新闻按钮的逻辑到这里结束 ---
+    });
+    </script>
+
 </body>
 </html>
