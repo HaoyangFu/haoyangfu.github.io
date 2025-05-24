@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haoyang Fu </title>
+    <title>Haoyang Fu - Research Fellow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
+            --primary-color: #1e3a5f;
+            --secondary-color: #4a90e2;
+            --accent-color: #f39c12;
             --text-color: #333;
-            --light-bg: #ecf0f1;
-            --border-color: #ddd;
-            --nav-bg: #34495e;
-            --nav-hover: #2c3e50;
+            --light-bg: #f8f9fa;
+            --border-color: #e1e4e8;
+            --nav-bg: #2c4770;
+            --nav-hover: #1e3a5f;
+            --footer-bg: #1e3a5f;
         }
 
         * {
@@ -27,21 +29,22 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: #ffffff;
-            padding-top: 60px; /* Space for fixed navbar */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Navigation Bar */
         .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
             background-color: var(--nav-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .nav-container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
@@ -52,9 +55,10 @@
 
         .nav-brand {
             color: white;
-            font-size: 1.5em;
-            font-weight: bold;
+            font-size: 1.4em;
+            font-weight: 600;
             text-decoration: none;
+            letter-spacing: 0.5px;
         }
 
         .nav-menu {
@@ -62,23 +66,27 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            align-items: center;
         }
 
         .nav-item {
-            margin-left: 30px;
+            margin-left: 20px;
         }
 
         .nav-link {
             color: white;
             text-decoration: none;
-            font-size: 1.1em;
-            padding: 10px 15px;
+            font-size: 1em;
+            padding: 8px 16px;
             border-radius: 4px;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
         }
 
         .nav-link:hover, .nav-link.active {
-            background-color: var(--nav-hover);
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-1px);
         }
 
         /* Dropdown Menu */
@@ -89,53 +97,68 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: var(--nav-bg);
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
             z-index: 1;
-            border-radius: 4px;
-            top: 100%;
-            left: 0;
+            border-radius: 8px;
+            top: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            overflow: hidden;
         }
 
         .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
+            color: var(--text-color);
+            padding: 12px 20px;
             text-decoration: none;
             display: block;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
         }
 
         .dropdown-content a:hover {
-            background-color: var(--nav-hover);
+            background-color: var(--light-bg);
+            color: var(--secondary-color);
         }
 
         .dropdown:hover .dropdown-content {
             display: block;
         }
 
-        /* Container */
+        /* Main Content */
+        main {
+            flex: 1;
+        }
+
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
         /* Header Section */
         .header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
         .profile-image {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            margin-bottom: 20px;
-            border: 3px solid var(--border-color);
-            background-color: var(--light-bg);
-            display: inline-block;
             overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 4px solid white;
+            position: relative;
         }
 
         .profile-image img {
@@ -147,71 +170,104 @@
         .profile-image-placeholder {
             width: 100%;
             height: 100%;
-            background-color: #f0f0f0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #999;
+            color: white;
             font-size: 14px;
+        }
+
+        .profile-info {
+            text-align: left;
+            max-width: 400px;
         }
 
         h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
             color: var(--primary-color);
+            font-weight: 700;
         }
 
         .subtitle {
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #666;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .subtitle a {
             color: var(--secondary-color);
             text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
         }
 
         .subtitle a:hover {
-            text-decoration: underline;
+            border-bottom-color: var(--secondary-color);
         }
 
-        /* Main Content */
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background-color: var(--light-bg);
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+
+        .social-link i {
+            font-size: 1.1em;
+        }
+
+        /* Introduction */
         .intro {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             text-align: justify;
             line-height: 1.8;
+            font-size: 1.05em;
         }
 
         .intro a {
             color: var(--secondary-color);
             text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
         }
 
         .intro a:hover {
-            text-decoration: underline;
-        }
-
-        /* Equation Section */
-        .equation-section {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 30px 0;
-            font-family: 'Courier New', monospace;
-            text-align: center;
-            font-size: 1.1em;
+            border-bottom-color: var(--secondary-color);
         }
 
         /* Research Interests */
         .research-interests {
-            margin: 40px 0;
+            margin: 50px 0;
         }
 
         .research-interests h2 {
             color: var(--primary-color);
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-size: 1.8em;
+            text-align: center;
         }
 
         .research-interests ul {
@@ -220,127 +276,168 @@
         }
 
         .research-interests li {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
-            line-height: 1.8;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+            transition: all 0.3s ease;
         }
 
-        .research-interests li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--secondary-color);
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .publications-links {
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .publications-links a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            margin: 0 3px;
+        .research-interests li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         /* Quote Section */
         .quote {
-            margin: 40px 0;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-left: 4px solid var(--secondary-color);
-            font-style: italic;
+            margin: 50px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            color: white;
             text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .quote p {
+            font-size: 1.3em;
+            font-style: italic;
+            margin-bottom: 15px;
         }
 
         .quote-author {
-            margin-top: 10px;
             font-style: normal;
-            color: #666;
+            opacity: 0.9;
         }
 
         /* News Section */
         .news {
-            margin: 40px 0;
+            margin: 50px 0;
         }
 
         .news h2 {
             color: var(--primary-color);
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-size: 1.8em;
+            text-align: center;
         }
 
         .news-item {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            position: relative;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
         }
 
-        .news-item:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--secondary-color);
+        .news-item:hover {
+            border-left-color: var(--secondary-color);
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .news-date {
-            font-weight: bold;
-            color: #666;
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 0.9em;
         }
 
         .news-item a {
             color: var(--secondary-color);
             text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
         }
 
         .news-item a:hover {
-            text-decoration: underline;
-        }
-
-        /* Demo Section */
-        .demo-section {
-            margin: 50px 0;
-            padding: 30px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-        }
-
-        .demo-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
-
-        .demo-content {
-            line-height: 1.8;
-        }
-
-        .demo-content a {
-            color: var(--secondary-color);
-            text-decoration: none;
-        }
-
-        .demo-content a:hover {
-            text-decoration: underline;
-        }
-
-        /* Mathematical Notation */
-        .math {
-            font-family: 'Times New Roman', serif;
-            font-style: italic;
+            border-bottom-color: var(--secondary-color);
         }
 
         /* Footer */
-        .footer {
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid var(--border-color);
+        footer {
+            background-color: var(--footer-bg);
+            color: white;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: #fff;
+        }
+
+        .footer-logo {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-links i {
+            margin-right: 8px;
+            width: 20px;
             text-align: center;
-            color: #666;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
             font-size: 0.9em;
+        }
+
+        .footer-bottom a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: white;
+        }
+
+        /* Views Counter */
+        .views-counter {
+            background-color: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .views-counter img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-top: 10px;
         }
 
         /* Mobile Menu Toggle */
@@ -353,16 +450,27 @@
             cursor: pointer;
         }
 
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            body {
-                padding-top: 60px;
-            }
-
-            .nav-container {
-                flex-wrap: wrap;
-            }
-
             .mobile-menu-toggle {
                 display: block;
             }
@@ -398,22 +506,38 @@
                 display: none;
                 box-shadow: none;
                 background-color: rgba(0,0,0,0.1);
+                transform: none;
             }
 
             .dropdown.active .dropdown-content {
                 display: block;
             }
 
-            .container {
-                padding: 20px 15px;
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-info {
+                text-align: center;
             }
 
             h1 {
                 font-size: 2em;
             }
 
-            .subtitle {
-                font-size: 1em;
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-logo {
+                margin: 0 auto 20px;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
     </style>
@@ -422,7 +546,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">Morris Huang</a>
+            <a href="index.html" class="nav-brand">Haoyang Fu</a>
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item">
@@ -446,157 +570,150 @@
         </div>
     </nav>
 
-    <div class="container">
-        <!-- Header Section -->
-        <div class="header">
-            <div class="profile-image">
-                <div class="profile-image-placeholder">
-                    <!-- 在此处放置头像图片 -->
-                    <!-- <img src="images/profile.jpg" alt="Morris Huang"> -->
-                    [头像图片]
+    <main>
+        <div class="container">
+            <!-- Header Section -->
+            <div class="header">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <div class="profile-image-placeholder">
+                            <!-- 在此处放置头像图片 -->
+                            <!-- <img src="images/profile.jpg" alt="Haoyang Fu"> -->
+                            [Profile Photo]
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h1>Haoyang Fu</h1>
+                        <div class="subtitle">
+                            Research Fellow @ <a href="https://www.ntu.edu.sg">Nanyang Technological University</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="mailto:haoyang.fu@ntu.edu.sg" class="social-link">
+                                <i class="fas fa-envelope"></i>
+                                <span>haoyang.fu@ntu.edu.sg</span>
+                            </a>
+                            <a href="https://scholar.google.com/citations?user=YOUR_ID" class="social-link">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Google Scholar</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/YOUR_ID" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/YOUR_ID" class="social-link">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <h1>Yu-Chao (Morris) Huang</h1>
-            <div class="subtitle">
-                Incoming PhD Student @ <a href="https://cs.unc.edu/">University of North Carolina, Chapel Hill</a>
-            </div>
-        </div>
 
-        <!-- Introduction -->
-        <div class="intro">
-            <p>
-                Hey, my name is Yu-Chao Huang (黃禹超 in Chinese). I also go by Morris. I am an incoming PhD student at 
-                <a href="https://cs.unc.edu/">UNC CS</a>, advised by <a href="https://tianlong-chen.github.io/">Prof. Tianlong Chen</a> 
-                and <a href="https://www.acmlab.org/">Prof. Guorong Wu</a>. Previously, I had the opportunity to intern at 
-                <a href="https://www.mccormick.northwestern.edu/computer-science/">NU</a>, working under 
-                <a href="https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/liu-han.html">Prof. Han Liu</a> 
-                in the <a href="https://magics.cs.northwestern.edu/">MAGICS</a> lab. Before that, I earned M.Sc. in Physics under 
-                the guidance of <a href="https://www.phys.ntu.edu.tw/enphysics/goan.html">Prof. Hsi-Sheng Goan</a> at 
-                <a href="https://www.ntu.edu.tw/english/">National Taiwan University</a> followed by research assistant position at 
-                <a href="https://phys.ncts.ntu.edu.tw">National Center for Theoretical Sciences</a>.
+            <!-- Introduction -->
+            <div class="intro">
+                <p>
+                    My name is Haoyang Fu, and I am currently a Research Fellow at the School of Materials Science and Engineering, 
+                    Nanyang Technological University (NTU), working with <a href="https://dr.ntu.edu.sg/cris/rp/rp00773">A/P Shuzhou Li</a>. 
+                    My research interests focus on applying AI to develop advanced catalytic materials for efficient green catalytic 
+                    transformation and sustainable valorization of emerging pollutants. I received my Ph.D. in Environmental Science 
+                    from Tongji University and was previously a visiting scholar in Computational Science at NTU. Before that, I obtained 
+                    my M.E. degree from the Chinese Academy of Sciences and B.E. degree from Fuzhou University.
+                </p>
+            </div>
+
+            <!-- Research Interests -->
+            <div class="research-interests">
+                <h2>Research Interests</h2>
+                <ul>
+                    <li>
+                        <strong>AI-assisted</strong> discovery of catalysts for enhanced Fenton catalysis
+                    </li>
+                    <li>
+                        Structural engineering of nanomaterials for <strong>catalytic upvaluing of emerging pollutants</strong>
+                    </li>
+                    <li>
+                        Investigation of particle <strong>growth mechanisms</strong> and shape anisotropy using Cs-TEM and liquid-cell TEM
+                    </li>
+                </ul>
+            </div>
+
+            <p style="text-align: center;">
+                <a href="mailto:haoyang.fu@ntu.edu.sg" class="cta-button">Contact Me</a>
+            </p>
+
+            <!-- Quote -->
+            <div class="quote">
+                <p>Research is to see what everybody else has seen, and to think what nobody else has thought.</p>
+                <p class="quote-author">— Albert Szent-Györgyi</p>
+            </div>
+
+            <!-- News Section -->
+            <div class="news">
+                <h2>Latest News</h2>
+                <div class="news-item">
+                    <span class="news-date">[Dec, 2024]</span> ~ $ Joined NTU as Research Fellow at School of Materials Science and Engineering.
+                </div>
+                <!-- Add more news items here as needed -->
+            </div>
+
+            <p style="margin: 40px 0; text-align: center;">
+                <a href="publications.html" class="cta-button">[View Publications]</a>
             </p>
         </div>
+    </main>
 
-        <!-- Equation Section -->
-        <div class="equation-section">
-            The equation |Morris⟩ = α |AI⟩ + β |Science⟩ reflects my superposition of research passion at the intersection of AI and science.
-        </div>
-
-        <!-- Research Interests -->
-        <div class="research-interests">
-            <p>My research interests lie in following directions:</p>
-            <ul>
-                <li>
-                    Developing methodologies with theoretical guarantees to ensure both optimality and practical applicability. 
-                    <span class="publications-links">
-                        [<a href="https://arxiv.org/abs/2404.03830">ICML'24</a>,
-                        <a href="https://arxiv.org/abs/2407.14761">ArXiv</a>,
-                        <a href="https://arxiv.org/abs/2411.06828">ArXiv</a>]
-                    </span>
-                </li>
-                <li>
-                    Theoretical understanding of the computational and statistical properties of deep learning models. 
-                    <span class="publications-links">
-                        [<a href="https://arxiv.org/abs/2411.17522">ICLR'25</a>]
-                    </span>
-                </li>
-                <li>
-                    Tackling interdisciplinary scientific problems from the machine learning perspective — physics-based modeling, quantum computing. 
-                    <span class="publications-links">
-                        [<a href="https://arxiv.org/abs/2407.14761">ArXiv</a>,
-                        <a href="https://arxiv.org/abs/2411.06828">ArXiv</a>]
-                    </span>
-                </li>
-                <li>
-                    Advancing domain adaptation and scientific discovery frameworks for Large Language Models. 
-                    <span class="publications-links">
-                        [<a href="https://aclanthology.org/2024.findings-emnlp.969/">EMNLP'24</a>]
-                    </span>
-                </li>
-            </ul>
-        </div>
-
-        <p style="text-align: center; margin: 30px 0;">
-            Feel free to reach out if you think we should <a href="mailto:morris@cs.unc.edu" style="color: var(--secondary-color);">connect</a>!
-        </p>
-
-        <!-- Quote -->
-        <div class="quote">
-            <p>Somewhere, something incredible is waiting to be known.</p>
-            <p class="quote-author">— Carl Sagan</p>
-        </div>
-
-        <!-- News Section -->
-        <div class="news">
-            <h2>News</h2>
-            <div class="news-item">
-                <span class="news-date">[Apr, 2025]</span> ~ $ Starting my PhD study at 
-                <a href="https://www.unc.edu/">University of North Carolina at Chapel Hill</a> this Fall. 🎉 
-                I've set some <a href="news/phd_goals.html">ambitious goals</a>!
-            </div>
-            <div class="news-item">
-                <span class="news-date">[Mar, 2025]</span> ~ $ Paper accepted to ICLR'25 DeLTa Workshop: 
-                <a href="https://openreview.net/forum?id=o1FZgkcL2g">Statistical Foundations of Conditional Diffusion Transformers</a>.
-            </div>
-            <div class="news-item">
-                <span class="news-date">[Jan, 2025]</span> ~ $ Paper accepted to ICLR'25: 
-                <a href="https://arxiv.org/abs/2411.17522">On Statistical Rates of Conditional Diffusion Transformer: Approximation and Estimation</a>.
-            </div>
-            <div class="news-item">
-                <span class="news-date">[Nov, 2024]</span> ~ $ New preprint! 
-                <a href="https://arxiv.org/abs/2411.06828">QTTT</a>, a test-time training framework using quantum auto-encoders to adapt to data shifts and circuit noise.
-            </div>
-            <div class="news-item">
-                <span class="news-date">[Sep, 2024]</span> ~ $ Paper accepted to EMNLP'24 Findings: 
-                <a href="https://aclanthology.org/2024.findings-emnlp.969/">Two Tales of Persona in LLMs: A Survey of Role-Playing and Personalization</a>.
-            </div>
-            <div class="news-item">
-                <span class="news-date">[Jul, 2024]</span> ~ $ New preprint! 
-                <a href="https://arxiv.org/abs/2407.14761">L2O-g†</a> is a quantum-aware learned optimizer that leverages quantum geometry and LSTM networks to efficiently train variational quantum algorithms (VQAs) with strong generalization and no hyperparameter tuning.
-            </div>
-            <div class="news-item">
-                <span class="news-date">[May, 2024]</span> ~ $ Paper accepted to ICML'24: 
-                <a href="https://arxiv.org/abs/2404.03830">BiSHop: Bi-Directional Cellular Learning for Tabular Data with Generalized Sparse Modern Hopfield Model</a>.
-            </div>
-        </div>
-
-        <p style="margin: 30px 0; text-align: center;">
-            <a href="publications.html" style="color: var(--secondary-color); font-weight: bold;">[Selected Publications]</a>
-        </p>
-        <p style="text-align: center; color: #666; font-style: italic;">
-            * These authors contributed equally to this work.
-        </p>
-
-        <!-- Demo Section -->
-        <div class="demo-section">
-            <h2>Machine Learning Demo - Hopfield Networks</h2>
-            <div class="demo-content">
-                <p style="margin-bottom: 15px;">
-                    🥁 🥁 The Nobel Prize in Physics 2024 is awarded to John Hopfield and Geoffrey Hinton! 
-                    (see <a href="https://www.nobelprize.org/prizes/physics/2024/summary/">here</a>)
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="https://www.ntu.edu.sg/images/default-source/corporate/ntu_logo.png" alt="NTU Logo" class="footer-logo" style="background: white; padding: 10px;">
+                <p style="margin-top: 10px; opacity: 0.8;">
+                    © Copyright 2025 Haoyang Fu.
                 </p>
-                <p style="margin-bottom: 15px;">
-                    The Hopfield network is inspired by the Ising model. Hopfield network acts as a dynamic energy system where neurons interact to reach stable, low-energy states, similar to particles finding equilibrium in a physical system. The energy function is given by
-                </p>
-                <p style="text-align: center; margin: 20px 0; font-family: 'Times New Roman', serif; font-style: italic; font-size: 1.1em;">
-                    E = -½ Σ<sub>i≠j</sub> W<sub>ij</sub> s<sub>i</sub> s<sub>j</sub> - Σ<sub>i</sub> b<sub>i</sub> s<sub>i</sub>
-                </p>
-                <p style="margin-bottom: 15px;">
-                    where neuron interactions mimic energy exchanges, guiding the network to "remember" stored patterns 
-                    (see a <a href="https://ml-jku.github.io/hopfield-layers/">nice blog post</a>).
-                </p>
-                <p>
-                    Check out our paper on utilizing modern Hopfield networks for tabular learning 
-                    <a href="https://proceedings.mlr.press/v235/xu24l.html">[ICML'24]</a>.
+                <p style="margin-top: 10px; opacity: 0.8;">
+                    Last updated: May 04, 2025.
                 </p>
             </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li>
+                        <i class="fas fa-university"></i>
+                        Nanyang Technological University
+                    </li>
+                    <li>
+                        <i class="fas fa-building"></i>
+                        School of Materials Science & Engineering
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        N4.1-B4-g20, 50 Nanyang Avenue, Singapore 639798
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        Tel: (65) 8672 4068 GMT+8h
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        Email: haoyang.fu@ntu.edu.sg
+                    </li>
+                    <li>
+                        <i class="fas fa-globe"></i>
+                        Web: <a href="https://www.ntu.edu.sg" style="color: rgba(255,255,255,0.8);">www.ntu.edu.sg</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Views</h3>
+                <div class="views-counter">
+                    <p style="font-weight: bold; margin-bottom: 10px;">9,214 Total Pageviews</p>
+                    <img src="https://clustrmaps.com/map_v2.png?cl=ffffff&w=300&t=tt&d=YOUR_WEBSITE_ID" alt="Visitor Map">
+                </div>
+            </div>
         </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>© 2025 Yu-Chao (Morris) Huang. All rights reserved.</p>
-        </div>
-    </div>
+    </footer>
 
     <script>
         function toggleMobileMenu() {
