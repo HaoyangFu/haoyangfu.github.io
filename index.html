@@ -363,63 +363,115 @@
         .publications-section {
             margin: 60px 0;
         }
-
+        
         .publications-section h2 {
             color: var(--primary-color);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             font-size: 1.8em;
             text-align: center;
         }
-
-        .publications-box {
-            padding: 40px;
+        
+        .publications-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .publication-item {
+            display: flex;
+            gap: 25px;
+            padding: 25px;
             background-color: #fafbfc;
             border-radius: 12px;
             border: 1px solid #e1e4e8;
+            transition: all 0.3s ease;
         }
-
-        .publication-list {
-            list-style: none;
-            padding: 0;
-            counter-reset: pub-counter;
+        
+        .publication-item:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
         }
-
-        .publication-list li {
-            margin-bottom: 25px;
-            padding-left: 40px;
-            position: relative;
-            counter-increment: pub-counter;
-            line-height: 1.8;
+        
+        .pub-image {
+            flex-shrink: 0;
+            width: 200px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: #f0f0f0;
         }
-
-        .publication-list li::before {
-            content: counter(pub-counter) ".";
-            position: absolute;
-            left: 10px;
-            color: var(--secondary-color);
-            font-weight: bold;
+        
+        .pub-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .pub-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .pub-title {
             font-size: 1.1em;
+            line-height: 1.4;
         }
-
+        
+        .pub-title a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .pub-title a:hover {
+            color: var(--secondary-color);
+        }
+        
         .pub-authors {
             color: #555;
+            font-size: 0.95em;
+            line-height: 1.4;
         }
-
-        .pub-year {
-            color: var(--secondary-color);
+        
+        .pub-authors strong {
+            color: var(--primary-color);
             font-weight: 600;
         }
-
-        .pub-title {
-            font-weight: 500;
-            color: var(--primary-color);
-        }
-
-        .pub-journal {
-            font-style: italic;
+        
+        .pub-venue {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9em;
             color: #666;
         }
-
+        
+        .journal-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.85em;
+        }
+        
+        .journal-tag.acs {
+            background-color: #d97706;
+        }
+        
+        .journal-tag.afm {
+            background-color: #059669;
+        }
+        
+        .journal-tag.apcatb {
+            background-color: #7c3aed;
+        }
+        
         .view-all-button {
             display: inline-block;
             padding: 12px 30px;
@@ -430,7 +482,7 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-
+        
         .view-all-button:hover {
             background-color: var(--primary-color);
             transform: translateY(-2px);
@@ -621,6 +673,15 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            
+            .publication-item {
+                flex-direction: column;
+            }
+            
+            .pub-image {
+                width: 100%;
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -731,46 +792,114 @@
             </div>
 
             <!-- Selected Publications Section -->
+            <!-- Selected Publications Section -->
             <div class="publications-section">
                 <h2>Selected Publications</h2>
-                <div class="publications-box">
-                    <ol class="publication-list">
-                        <li>
-                            <span class="pub-authors">Fu, H., Li, K., Chen, Q., Tang, B., Deng, Z., Toh, Z., Zhu, R.*, Li, S.*</span> 
-                            <span class="pub-year">2025.</span>
-                            <span class="pub-title">Accelerated design of Fenton-like copper single-atom catalysts by adaptive learning with genetic programming.</span>
-                            <span class="pub-journal">Angewandte Chemie</span>, e202505301.
-                        </li>
-                        <li>
-                            <span class="pub-authors">Fu, H., Li, K., Zhang, C.,…Li, S.*, Ling, L.*</span>
-                            <span class="pub-year">2023.</span>
-                            <span class="pub-title">Machine learning-assisted optimization of single-atom coordination environment for accelerated Fenton catalysis.</span>
-                            <span class="pub-journal">ACS Nano</span>, 17, 13851-13860.
-                        </li>
-                        <li>
-                            <span class="pub-authors">Fu, H., Chen, G.*, Zhang, J., ... Wu, X.*, Duan, X.</span>
-                            <span class="pub-year">2024.</span>
-                            <span class="pub-title">Spatially separated electron donor-acceptor dual single-atom sites coordinating selective generation of hydroxyl radicals via Fenton-like catalysis.</span>
-                            <span class="pub-journal">Advanced Functional Materials</span>, 2407243.
-                        </li>
-                        <li>
-                            <span class="pub-authors">Fu, H., Chen, Q., Min, B., ... Chen, X., Ling, L.*</span>
-                            <span class="pub-year">2024.</span>
-                            <span class="pub-title">Oscillatory phase transition induced structural extension during iron oxide reduction.</span>
-                            <span class="pub-journal">Fundamental Research</span>. Online.
-                        </li>
-                        <li>
-                            <span class="pub-authors">Fu, H., Wei, J., Chen, G… Chen, X., Li, S.*, Ling, L.*</span>
-                            <span class="pub-year">2023.</span>
-                            <span class="pub-title">Axial coordination tuning Fe single-atom catalysts for boosting H2O2 activation.</span>
-                            <span class="pub-journal">Applied Catalysis B: Environmental</span>, 321, 122012.
-                        </li>
-                    </ol>
-                    <p style="text-align: center; margin-top: 30px; margin-bottom: 0;">
-                        <a href="publications.html" class="view-all-button">View All Publications</a>
-                    </p>
+                <div class="publications-container">
+                    <!-- Publication 1 -->
+                    <div class="publication-item">
+                        <div class="pub-image">
+                            <img src="images/pub1.jpg" alt="Fenton-like copper single-atom catalysts">
+                        </div>
+                        <div class="pub-content">
+                            <div class="pub-title">
+                                <a href="https://doi.org/10.1002/anie.202505301" target="_blank">
+                                    Accelerated design of Fenton-like copper single-atom catalysts by adaptive learning with genetic programming
+                                </a>
+                            </div>
+                            <div class="pub-authors">
+                                <strong>Haoyang Fu</strong>, Li, K., Chen, Q., Tang, B., Deng, Z., Toh, Z., Zhu, R.*, Li, S.*
+                            </div>
+                            <div class="pub-venue">
+                                <span class="journal-tag">Angewandte Chemie</span> 2025 | e202505301
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Publication 2 -->
+                    <div class="publication-item">
+                        <div class="pub-image">
+                            <img src="images/pub2.jpg" alt="Machine learning-assisted optimization">
+                        </div>
+                        <div class="pub-content">
+                            <div class="pub-title">
+                                <a href="https://doi.org/10.1021/acsnano.3b02823" target="_blank">
+                                    Machine learning-assisted optimization of single-atom coordination environment for accelerated Fenton catalysis
+                                </a>
+                            </div>
+                            <div class="pub-authors">
+                                <strong>Haoyang Fu</strong>, Li, K., Zhang, C., ...Li, S.*, Ling, L.*
+                            </div>
+                            <div class="pub-venue">
+                                <span class="journal-tag acs">ACS Nano</span> 2023 | 17, 13851-13860
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Publication 3 -->
+                    <div class="publication-item">
+                        <div class="pub-image">
+                            <img src="images/pub3.jpg" alt="Spatially separated electron donor-acceptor">
+                        </div>
+                        <div class="pub-content">
+                            <div class="pub-title">
+                                <a href="https://doi.org/10.1002/adfm.202407243" target="_blank">
+                                    Spatially separated electron donor-acceptor dual single-atom sites coordinating selective generation of hydroxyl radicals via Fenton-like catalysis
+                                </a>
+                            </div>
+                            <div class="pub-authors">
+                                <strong>Haoyang Fu</strong>, Chen, G.*, Zhang, J., ... Wu, X.*, Duan, X.
+                            </div>
+                            <div class="pub-venue">
+                                <span class="journal-tag afm">Advanced Functional Materials</span> 2024 | 2407243
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Publication 4 -->
+                    <div class="publication-item">
+                        <div class="pub-image">
+                            <img src="images/pub4.jpg" alt="Oscillatory phase transition">
+                        </div>
+                        <div class="pub-content">
+                            <div class="pub-title">
+                                <a href="#" target="_blank">
+                                    Oscillatory phase transition induced structural extension during iron oxide reduction
+                                </a>
+                            </div>
+                            <div class="pub-authors">
+                                <strong>Haoyang Fu</strong>, Chen, Q., Min, B., ... Chen, X., Ling, L.*
+                            </div>
+                            <div class="pub-venue">
+                                <span class="journal-tag">Fundamental Research</span> 2024 | Online
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Publication 5 -->
+                    <div class="publication-item">
+                        <div class="pub-image">
+                            <img src="images/pub5.jpg" alt="Axial coordination tuning">
+                        </div>
+                        <div class="pub-content">
+                            <div class="pub-title">
+                                <a href="https://doi.org/10.1016/j.apcatb.2022.122012" target="_blank">
+                                    Axial coordination tuning Fe single-atom catalysts for boosting H2O2 activation
+                                </a>
+                            </div>
+                            <div class="pub-authors">
+                                <strong>Haoyang Fu</strong>, Wei, J., Chen, G., ... Chen, X., Li, S.*, Ling, L.*
+                            </div>
+                            <div class="pub-venue">
+                                <span class="journal-tag apcatb">Applied Catalysis B: Environmental</span> 2023 | 321, 122012
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            
+            <p style="text-align: center; margin-top: 40px;">
+                <a href="publications.html" class="view-all-button">View All Publications</a>
+            </p>
         </div>
     </main>
 
