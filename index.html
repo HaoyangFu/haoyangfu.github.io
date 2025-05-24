@@ -26,7 +26,11 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
+        .hidden-news-item {
+            display: none;
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
@@ -366,6 +370,25 @@
             border-bottom-color: var(--secondary-color);
         }
 
+
+        /* (可选) 为按钮添加一些样式 */
+        #toggleNewsButton {
+            display: block; /* 或者 inline-block */
+            margin: 20px auto; /* 上下边距20px，左右自动居中 */
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: var(--primary-color, #007bff); /* 使用您定义的 --primary-color，如果没有则用默认蓝色 */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        #toggleNewsButton:hover {
+            background-color: var(--secondary-color, #0056b3); /* 使用您定义的 --secondary-color，或一个更深的蓝色 */
+        }
+        
         /* Selected Publications */
         .publications-section {
             margin: 60px 0;
@@ -863,6 +886,9 @@
                 
                 <div class="news-item">
                     <span class="news-date">[May, 2023]</span> ~ $ Received <strong>"Honorable Mention" of ACS Environmental Chemistry Graduate Student Award 2023</strong>.
+                </div>
+                
+                <button id="toggleNewsButton" type="button" style="display: none;">显示更多新闻</button>
                 </div>
                     
             </div>
