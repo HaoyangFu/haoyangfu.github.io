@@ -371,14 +371,13 @@
         }
 
 
-        /* (可选) 为按钮添加一些样式 */
         #toggleNewsButton {
-            display: block; /* 或者 inline-block */
-            margin: 20px auto; /* 上下边距20px，左右自动居中 */
+            display: block;
+            margin: 20px auto;
             padding: 10px 20px;
             font-size: 1em;
-            color: white;
-            background-color: var(--primary-color, #007bff); /* 使用您定义的 --primary-color，如果没有则用默认蓝色 */
+            color: white; /* 白色文字在 #4a90e2 上仍然清晰 */
+            background-color: var(--secondary-color); /* ★ 改为使用 --secondary-color */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -386,7 +385,13 @@
         }
         
         #toggleNewsButton:hover {
-            background-color: var(--secondary-color, #fafbfc); /* 使用您定义的 --secondary-color，或一个更深的蓝色 */
+            /* 当正常状态是 --secondary-color 时，悬停颜色需要调整 */
+            /* 选项A: 悬停时变回深一点的 --primary-color */
+            background-color: var(--primary-color);
+            
+            /* 选项B: 悬停时变成一个比 --secondary-color 更浅或略深的颜色，例如： */
+            /* background-color: #6bA3F0; */ /* 一个比 #4a90e2 更浅一点的蓝色 */
+            /* background-color: #3a7bc8; */ /* 一个比 #4a90e2 略深一点的蓝色 */
         }
         
         /* Selected Publications */
