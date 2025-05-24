@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haoyang Fu - Research Fellow</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #1e3a5f;
@@ -297,15 +300,15 @@
         .quote {
             margin: 50px 0;
             padding: 30px 40px;
-            background-color: #f8f9fa;
+            background-color: #99CCFF;
             border-left: 4px solid var(--secondary-color);
             text-align: left;
         }
         
         .quote p {
-            font-size: 1.1em;
-            font-style: italic;
-            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 2em;
+            /* font-style: italic;  <-- 建议先移除或测试效果 */
+            font-family: 'Patrick Hand', cursive; /* 使用您选择的字体 */
             color: var(--text-color);
             margin-bottom: 15px;
             line-height: 1.6;
@@ -315,7 +318,7 @@
             font-style: normal;
             color: #666;
             font-size: 1em;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* 或者您也可以为作者选择一个不同的手写体或协调的字体 */
         }
 
         /* News Section */
@@ -386,6 +389,7 @@
             gap: 25px;
             padding: 25px;
             background-color: #fafbfc;
+            border-left-color: var(--secondary-color);
             border-radius: 12px;
             border: 1px solid #e1e4e8;
             transition: all 0.3s ease;
@@ -864,7 +868,6 @@
                     
             </div>
 
-            <!-- Selected Publications Section -->
             <!-- Selected Publications Section -->
             <div class="publications-section">
                 <h2>Selected Publications</h2>
