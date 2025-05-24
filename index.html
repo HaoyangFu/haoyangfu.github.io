@@ -360,19 +360,22 @@
         }
 
         /* Selected Publications */
-        .selected-publications {
+        .publications-section {
             margin: 60px 0;
-            padding: 40px;
-            background-color: #fafbfc;
-            border-radius: 12px;
-            border: 1px solid #e1e4e8;
         }
 
-        .selected-publications h2 {
+        .publications-section h2 {
             color: var(--primary-color);
             margin-bottom: 30px;
             font-size: 1.8em;
             text-align: center;
+        }
+
+        .publications-box {
+            padding: 40px;
+            background-color: #fafbfc;
+            border-radius: 12px;
+            border: 1px solid #e1e4e8;
         }
 
         .publication-list {
@@ -415,6 +418,23 @@
         .pub-journal {
             font-style: italic;
             color: #666;
+        }
+
+        .view-all-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .view-all-button:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         /* Footer */
@@ -719,53 +739,54 @@
             </div>
 
             <!-- Selected Publications Section -->
-            <div class="selected-publications">
+            <div class="publications-section">
                 <h2>Selected Publications</h2>
-                <ol class="publication-list">
-                    <li>
-                        <span class="pub-authors">Fu, H., Li, K., Chen, Q., Tang, B., Deng, Z., Toh, Z., Zhu, R.*, Li, S.*</span> 
-                        <span class="pub-year">2025.</span>
-                        <span class="pub-title">Accelerated design of Fenton-like copper single-atom catalysts by adaptive learning with genetic programming.</span>
-                        <span class="pub-journal">Angewandte Chemie</span>, e202505301.
-                    </li>
-                    <li>
-                        <span class="pub-authors">Fu, H., Li, K., Zhang, C.,…Li, S.*, Ling, L.*</span>
-                        <span class="pub-year">2023.</span>
-                        <span class="pub-title">Machine learning-assisted optimization of single-atom coordination environment for accelerated Fenton catalysis.</span>
-                        <span class="pub-journal">ACS Nano</span>, 17, 13851-13860.
-                    </li>
-                    <li>
-                        <span class="pub-authors">Fu, H., Chen, G.*, Zhang, J., ... Wu, X.*, Duan, X.</span>
-                        <span class="pub-year">2024.</span>
-                        <span class="pub-title">Spatially separated electron donor-acceptor dual single-atom sites coordinating selective generation of hydroxyl radicals via Fenton-like catalysis.</span>
-                        <span class="pub-journal">Advanced Functional Materials</span>, 2407243.
-                    </li>
-                    <li>
-                        <span class="pub-authors">Fu, H., Chen, Q., Min, B., ... Chen, X., Ling, L.*</span>
-                        <span class="pub-year">2024.</span>
-                        <span class="pub-title">Oscillatory phase transition induced structural extension during iron oxide reduction.</span>
-                        <span class="pub-journal">Fundamental Research</span>. Online.
-                    </li>
-                    <li>
-                        <span class="pub-authors">Fu, H., Wei, J., Chen, G… Chen, X., Li, S.*, Ling, L.*</span>
-                        <span class="pub-year">2023.</span>
-                        <span class="pub-title">Axial coordination tuning Fe single-atom catalysts for boosting H2O2 activation.</span>
-                        <span class="pub-journal">Applied Catalysis B: Environmental</span>, 321, 122012.
-                    </li>
-                </ol>
+                <div class="publications-box">
+                    <ol class="publication-list">
+                        <li>
+                            <span class="pub-authors">Fu, H., Li, K., Chen, Q., Tang, B., Deng, Z., Toh, Z., Zhu, R.*, Li, S.*</span> 
+                            <span class="pub-year">2025.</span>
+                            <span class="pub-title">Accelerated design of Fenton-like copper single-atom catalysts by adaptive learning with genetic programming.</span>
+                            <span class="pub-journal">Angewandte Chemie</span>, e202505301.
+                        </li>
+                        <li>
+                            <span class="pub-authors">Fu, H., Li, K., Zhang, C.,…Li, S.*, Ling, L.*</span>
+                            <span class="pub-year">2023.</span>
+                            <span class="pub-title">Machine learning-assisted optimization of single-atom coordination environment for accelerated Fenton catalysis.</span>
+                            <span class="pub-journal">ACS Nano</span>, 17, 13851-13860.
+                        </li>
+                        <li>
+                            <span class="pub-authors">Fu, H., Chen, G.*, Zhang, J., ... Wu, X.*, Duan, X.</span>
+                            <span class="pub-year">2024.</span>
+                            <span class="pub-title">Spatially separated electron donor-acceptor dual single-atom sites coordinating selective generation of hydroxyl radicals via Fenton-like catalysis.</span>
+                            <span class="pub-journal">Advanced Functional Materials</span>, 2407243.
+                        </li>
+                        <li>
+                            <span class="pub-authors">Fu, H., Chen, Q., Min, B., ... Chen, X., Ling, L.*</span>
+                            <span class="pub-year">2024.</span>
+                            <span class="pub-title">Oscillatory phase transition induced structural extension during iron oxide reduction.</span>
+                            <span class="pub-journal">Fundamental Research</span>. Online.
+                        </li>
+                        <li>
+                            <span class="pub-authors">Fu, H., Wei, J., Chen, G… Chen, X., Li, S.*, Ling, L.*</span>
+                            <span class="pub-year">2023.</span>
+                            <span class="pub-title">Axial coordination tuning Fe single-atom catalysts for boosting H2O2 activation.</span>
+                            <span class="pub-journal">Applied Catalysis B: Environmental</span>, 321, 122012.
+                        </li>
+                    </ol>
+                    <p style="text-align: center; margin-top: 30px; margin-bottom: 0;">
+                        <a href="publications.html" class="view-all-button">[View All Publications]</a>
+                    </p>
+                </div>
             </div>
         </div>
     </main>
-    
-            <p style="margin: 40px 0; text-align: center;">
-                <a href="publications.html" class="cta-button">[View All Publications]</a>
-            </p>
-    
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Nanyang Technological University</h3>
+                <img src="https://www.ntu.edu.sg/images/default-source/corporate/ntu_logo.png" alt="NTU Logo" class="footer-logo" style="padding: 10px;">
                 <p style="margin-top: 20px; opacity: 0.8;">
                     © Copyright 2025 Haoyang Fu.
                 </p>
@@ -787,7 +808,7 @@
                     </li>
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        50 Nanyang Avenue, Singapore 639798
+                        N4.1-B4-g20, 50 Nanyang Avenue, Singapore 639798
                     </li>
                     <li>
                         <i class="fas fa-phone"></i>
