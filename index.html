@@ -146,18 +146,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 50px;
+            margin-bottom: 50px;
             flex-wrap: wrap;
         }
 
         .profile-image {
-            width: 180px;
-            height: 180px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            border: 4px solid white;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            border: 5px solid #f0f0f0;
             position: relative;
         }
 
@@ -170,17 +170,18 @@
         .profile-image-placeholder {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6c7ff2 0%, #8b68d7 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 500;
         }
 
         .profile-info {
             text-align: left;
-            max-width: 400px;
+            max-width: 500px;
         }
 
         h1 {
@@ -210,18 +211,20 @@
         /* Social Links */
         .social-links {
             display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 20px;
+            gap: 12px;
+            justify-content: flex-start;
+            margin-top: 25px;
+            flex-wrap: wrap;
         }
 
         .social-link {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background-color: var(--light-bg);
-            border-radius: 20px;
+            gap: 6px;
+            padding: 10px 18px;
+            background-color: #f0f2f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
             text-decoration: none;
             color: var(--text-color);
             transition: all 0.3s ease;
@@ -231,12 +234,13 @@
         .social-link:hover {
             background-color: var(--secondary-color);
             color: white;
+            border-color: var(--secondary-color);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.25);
         }
 
         .social-link i {
-            font-size: 1.1em;
+            font-size: 1em;
         }
 
         /* Introduction */
@@ -353,6 +357,64 @@
 
         .news-item a:hover {
             border-bottom-color: var(--secondary-color);
+        }
+
+        /* Selected Publications */
+        .selected-publications {
+            margin: 60px 0;
+            padding: 40px;
+            background-color: #fafbfc;
+            border-radius: 12px;
+            border: 1px solid #e1e4e8;
+        }
+
+        .selected-publications h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .publication-list {
+            list-style: none;
+            padding: 0;
+            counter-reset: pub-counter;
+        }
+
+        .publication-list li {
+            margin-bottom: 25px;
+            padding-left: 40px;
+            position: relative;
+            counter-increment: pub-counter;
+            line-height: 1.8;
+        }
+
+        .publication-list li::before {
+            content: counter(pub-counter) ".";
+            position: absolute;
+            left: 10px;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .pub-authors {
+            color: #555;
+        }
+
+        .pub-year {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .pub-title {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .pub-journal {
+            font-style: italic;
+            color: #666;
         }
 
         /* Footer */
@@ -657,8 +719,45 @@
             </div>
 
             <p style="margin: 40px 0; text-align: center;">
-                <a href="publications.html" class="cta-button">[View Publications]</a>
+                <a href="publications.html" class="cta-button">[View All Publications]</a>
             </p>
+
+            <!-- Selected Publications Section -->
+            <div class="selected-publications">
+                <h2>Selected Publications</h2>
+                <ol class="publication-list">
+                    <li>
+                        <span class="pub-authors">Fu, H., Li, K., Chen, Q., Tang, B., Deng, Z., Toh, Z., Zhu, R.*, Li, S.*</span> 
+                        <span class="pub-year">2025.</span>
+                        <span class="pub-title">Accelerated design of Fenton-like copper single-atom catalysts by adaptive learning with genetic programming.</span>
+                        <span class="pub-journal">Angewandte Chemie</span>, e202505301.
+                    </li>
+                    <li>
+                        <span class="pub-authors">Fu, H., Li, K., Zhang, C.,…Li, S.*, Ling, L.*</span>
+                        <span class="pub-year">2023.</span>
+                        <span class="pub-title">Machine learning-assisted optimization of single-atom coordination environment for accelerated Fenton catalysis.</span>
+                        <span class="pub-journal">ACS Nano</span>, 17, 13851-13860.
+                    </li>
+                    <li>
+                        <span class="pub-authors">Fu, H., Chen, G.*, Zhang, J., ... Wu, X.*, Duan, X.</span>
+                        <span class="pub-year">2024.</span>
+                        <span class="pub-title">Spatially separated electron donor-acceptor dual single-atom sites coordinating selective generation of hydroxyl radicals via Fenton-like catalysis.</span>
+                        <span class="pub-journal">Advanced Functional Materials</span>, 2407243.
+                    </li>
+                    <li>
+                        <span class="pub-authors">Fu, H., Chen, Q., Min, B., ... Chen, X., Ling, L.*</span>
+                        <span class="pub-year">2024.</span>
+                        <span class="pub-title">Oscillatory phase transition induced structural extension during iron oxide reduction.</span>
+                        <span class="pub-journal">Fundamental Research</span>. Online.
+                    </li>
+                    <li>
+                        <span class="pub-authors">Fu, H., Wei, J., Chen, G… Chen, X., Li, S.*, Ling, L.*</span>
+                        <span class="pub-year">2023.</span>
+                        <span class="pub-title">Axial coordination tuning Fe single-atom catalysts for boosting H2O2 activation.</span>
+                        <span class="pub-journal">Applied Catalysis B: Environmental</span>, 321, 122012.
+                    </li>
+                </ol>
+            </div>
         </div>
     </main>
 
@@ -666,8 +765,8 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <img src="https://www.ntu.edu.sg/images/default-source/corporate/ntu_logo.png" alt="NTU Logo" class="footer-logo" style="background: white; padding: 10px;">
-                <p style="margin-top: 10px; opacity: 0.8;">
+                <h3>Nanyang Technological University</h3>
+                <p style="margin-top: 20px; opacity: 0.8;">
                     © Copyright 2025 Haoyang Fu.
                 </p>
                 <p style="margin-top: 10px; opacity: 0.8;">
@@ -688,7 +787,7 @@
                     </li>
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        N4.1-B4-g20, 50 Nanyang Avenue, Singapore 639798
+                        50 Nanyang Avenue, Singapore 639798
                     </li>
                     <li>
                         <i class="fas fa-phone"></i>
@@ -699,9 +798,6 @@
                         Email: haoyang.fu@ntu.edu.sg
                     </li>
                     <li>
-                        <i class="fas fa-globe"></i>
-                        Web: <a href="https://www.ntu.edu.sg" style="color: rgba(255,255,255,0.8);">www.ntu.edu.sg</a>
-                    </li>
                 </ul>
             </div>
             
