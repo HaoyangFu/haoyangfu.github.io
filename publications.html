@@ -6,6 +6,23 @@
     <title>Publications - Haoyang Fu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #1e3a5f;
+            --secondary-color: #4a90e2;
+            --accent-color: #f39c12;
+            --text-color: #333; /* Your existing text color */
+            --light-bg: #f8f9fa; /* Your existing body background */
+            --border-color: #e1e8ed; /* From your .section-title */
+            --nav-bg: #2c4770;
+            --nav-hover-bg: rgba(255,255,255,0.1);
+            --footer-bg: #1e3a5f;
+            /* Colors from your publications.html specific styles */
+            --pub-link-color: #0066cc;
+            --pub-title-color: #2c3e50;
+            --pub-border-color: #0066cc; /* For .publication-item border-left */
+            --pub-year-bg: #f0f7ff; /* For .year-title background */
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,134 +32,124 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
         }
         
+        /* --- Navigation Bar Styles --- */
+        .navbar {
+            background-color: var(--nav-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+        .nav-brand {
+            color: white;
+            font-size: 1.4em;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-item {
+            margin-left: 20px;
+        }
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .nav-link.active {
+            background-color: var(--primary-color);
+        }
+        .nav-link:hover {
+            background-color: var(--nav-hover-bg);
+            transform: translateY(-1px);
+        }
+        .nav-link.active:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-1px);
+        }
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none; position: absolute; background-color: white;
+            min-width: 180px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            z-index: 1; border-radius: 8px; top: 120%; left: 50%;
+            transform: translateX(-50%); overflow: hidden;
+        }
+        .dropdown-content a {
+            color: var(--text-color); padding: 12px 20px; text-decoration: none;
+            display: block; transition: all 0.3s ease;
+        }
+        .dropdown-content a:hover {
+            background-color: var(--light-bg); color: var(--secondary-color);
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+        .mobile-menu-toggle {
+            display: none; background: none; border: none;
+            color: white; font-size: 1.5em; cursor: pointer;
+        }
+        /* --- End of Navigation Bar Styles --- */
+
+        /* Your existing .container style */
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
         }
         
+        /* Your existing .back-link styles */
         .back-link {
             display: inline-block;
             margin-bottom: 30px;
-            color: #0066cc;
+            color: var(--pub-link-color);
             text-decoration: none;
             font-size: 16px;
             transition: color 0.3s;
         }
-        
         .back-link:hover {
-            color: #0052a3;
+            color: #0052a3; /* Darker shade for hover */
         }
-        
         .back-link i {
             margin-right: 5px;
         }
         
-        h1 {
+        /* Your existing h1 style for "Publications" page title */
+        .page-main-title { 
             font-size: 36px;
             margin-bottom: 40px;
-            color: #2c3e50;
+            color: var(--pub-title-color);
             font-weight: 600;
+            text-align: left; 
         }
         
-        .publications-section {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        
-        .section-title {
-            font-size: 24px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e1e8ed;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .section-title i {
-            color: #0066cc;
-        }
-        
-        .year-section {
-            margin-bottom: 30px;
-        }
-        
-        .year-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #0066cc;
-            margin-bottom: 15px;
-            padding: 10px;
-            background: #f0f7ff;
-            border-radius: 5px;
-            display: inline-block;
-        }
-        
-        .publication-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #0066cc;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .publication-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        .publication-authors {
-            color: #555;
-            margin-bottom: 5px;
-        }
-        
-        .publication-title {
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        
-        .publication-journal {
-            color: #666;
-            font-style: italic;
-        }
-        
-        .publication-info {
-            color: #888;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-        
-        .highlight {
-            background-color: #ffeaa7;
-            padding: 2px 4px;
-            border-radius: 3px;
-        }
-        
-        .patent-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #00a8ff;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .patent-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
+        /* Your .stats-container and .stat-box styles */
         .stats-container {
             display: flex;
             justify-content: space-around;
@@ -150,7 +157,6 @@
             flex-wrap: wrap;
             gap: 20px;
         }
-        
         .stat-box {
             background: white;
             padding: 20px;
@@ -160,32 +166,205 @@
             flex: 1;
             min-width: 200px;
         }
-        
         .stat-number {
             font-size: 36px;
             font-weight: 700;
-            color: #0066cc;
+            color: var(--pub-link-color);
             margin-bottom: 5px;
         }
-        
         .stat-label {
             color: #666;
             font-size: 16px;
         }
+
+        /* Your .publications-section and section titles */
+        .publications-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .section-title { /* For "Journal Publications", "Patents" etc. */
+            font-size: 24px;
+            color: var(--pub-title-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title i {
+            color: var(--pub-link-color);
+        }
+        
+        /* Year section styles (kept for when you add content) */
+        .year-section {
+            margin-bottom: 30px;
+        }
+        .year-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--pub-link-color);
+            margin-bottom: 20px; 
+            padding: 10px 15px; 
+            background: var(--pub-year-bg);
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        /* Styles for individual publication items (kept for when you add content) */
+        .publication-item {
+            margin-bottom: 25px; 
+            padding: 20px; 
+            background: var(--light-bg); 
+            border-radius: 8px;
+            border-left: 4px solid var(--pub-border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .publication-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12); 
+        }
+        
+        .publication-title { 
+            font-weight: 600;
+            margin-bottom: 8px; 
+            font-size: 1.1em; 
+        }
+        .publication-title a {
+            color: var(--pub-title-color); 
+            text-decoration: none;
+        }
+        .publication-title a:hover {
+            color: var(--secondary-color); 
+            text-decoration: underline;
+        }
+
+        .publication-authors {
+            color: #555;
+            margin-bottom: 8px; 
+            line-height: 1.5; 
+        }
+        .publication-authors strong { 
+            color: var(--text-color); 
+            font-weight: bold;
+        }
+        
+        .publication-journal { 
+            color: #666;
+            font-style: italic;
+            margin-bottom: 8px; 
+        }
+        
+        .publication-info { 
+            color: #888;
+            font-size: 0.9em; 
+            margin-top: 5px;
+        }
+
+        .publication-links a { 
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+        .publication-links a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        .publication-links i {
+            margin-right: 4px;
+        }
+        
+        .highlight { 
+            background-color: #ffeaa7;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        /* Your patent-item styles (kept for when you add content) */
+        .patent-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            border-left: 4px solid #00a8ff; 
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .patent-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* --- Footer Styles --- */
+        footer {
+            background-color: var(--footer-bg);
+            color: white;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-section h3 {
+            margin-bottom: 20px; font-size: 1.2em; color: #fff;
+        }
+        .footer-logo {
+            width: 200px; margin-bottom: 20px;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links i {
+            margin-right: 8px; width: 20px; text-align: center;
+        }
+        .views-counter {
+            background-color: rgba(255,255,255,0.1); padding: 15px;
+            border-radius: 8px; text-align: center;
+        }
+        .views-counter img {
+            max-width: 100%; height: auto; border-radius: 4px; margin-top: 10px;
+        }
+        /* --- End of Footer Styles --- */
         
         @media (max-width: 768px) {
+            .mobile-menu-toggle { display: block; }
+            .nav-menu {
+                display: none; width: 100%; flex-direction: column;
+                position: absolute; top: 60px; left: 0;
+                background-color: var(--nav-bg); box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active { display: flex; }
+            .nav-item { margin: 0; width: 100%; }
+            .nav-link { display: block; padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .dropdown-content {
+                position: static; box-shadow: none;
+                background-color: rgba(0,0,0,0.1); transform: none;
+            }
+            .dropdown.active .dropdown-content { display: block; }
+
+            .footer-content {
+                grid-template-columns: 1fr; text-align: center;
+            }
+            .footer-logo { margin: 0 auto 20px; }
+
+            /* Your existing responsive styles for publications page */
             .container {
                 padding: 20px 15px;
             }
-            
-            h1 {
+            .page-main-title {
                 font-size: 28px;
             }
-            
             .publications-section {
                 padding: 20px;
             }
-            
             .stats-container {
                 flex-direction: column;
             }
@@ -193,36 +372,133 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-link">
-            <i class="fas fa-arrow-left"></i> Back to Home
-        </a>
-        
-        <h1>Publications</h1>
-        
-        <div class="stats-container">
-            <div class="stat-box">
-                <div class="stat-number">54</div>
-                <div class="stat-label">SCI Papers</div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Haoyang Fu</a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link active">Publications</a> </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Misc ▼</a>
+                    <div class="dropdown-content">
+                        <a href="projects.html">Projects</a>
+                        <a href="teaching.html">Teaching</a>
+                        <a href="resources.html">Resources</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            
+            <h1 class="page-main-title">Publications</h1>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-number">54</div>
+                    <div class="stat-label">SCI Papers</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">20</div>
+                    <div class="stat-label">H-index</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1742</div>
+                    <div class="stat-label">Citations</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">9</div>
+                    <div class="stat-label">Patents</div>
+                </div>
             </div>
-            <div class="stat-box">
-                <div class="stat-number">20</div>
-                <div class="stat-label">H-index</div>
+            
+            <div class="publications-section">
+                <h2 class="section-title">
+                    <i class="fas fa-file-alt"></i> Journal Publications
+                </h2>
+
+                </div> </div> </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="https://www.ntu.edu.sg/images/default-source/corporate/ntu_logo.png" alt="NTU Logo" class="footer-logo" style="padding: 15px; background-color: white; border-radius: 8px;">
+                <p style="margin-top: 20px; opacity: 0.8;">
+                    © Copyright 2025 by Haoyang Fu.
+                </p>
+                <p style="margin-top: 10px; opacity: 0.8;">
+                    Last updated: May 25, 2025. </p>
             </div>
-            <div class="stat-box">
-                <div class="stat-number">1742</div>
-                <div class="stat-label">Citations</div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-university"></i> Nanyang Technological University</li>
+                    <li><i class="fas fa-building"></i> School of Materials Science & Engineering</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 50 Nanyang Avenue, Singapore 639798</li>
+                    <li><i class="fas fa-phone"></i> Tel: (65) 8672 4068 GMT+8h</li>
+                    <li><i class="fas fa-envelope"></i> Email: haoyang.fu@ntu.edu.sg</li>
+                </ul>
             </div>
-            <div class="stat-box">
-                <div class="stat-number">9</div>
-                <div class="stat-label">Patents</div>
+            <div class="footer-section">
+                <div class="views-counter">
+                    <p style="font-weight: bold; margin-bottom: 10px;">Pageviews</p>
+                    <img src="https://clustrmaps.com/map_v2.png?cl=ffffff&w=300&t=tt&d=YOUR_ACTUAL_MAP_ID" alt="Visitor Map"> </div>
             </div>
         </div>
-        
-        <div class="publications-section">
-            <h2 class="section-title">
-                <i class="fas fa-file-alt"></i> Journal Publications
-            </h2>
+    </footer>
+    
+    <script>
+        // Navbar mobile toggle function
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            if (navMenu) {
+                navMenu.classList.toggle('active');
+            }
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('navMenu');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (navMenu && mobileToggle && !navMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Handle dropdown on mobile
+        const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('.nav-link');
+            if (link) {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        const parentDropdown = this.closest('.nav-item.dropdown');
+                        if (parentDropdown) {
+                            if (link.getAttribute('href') === '#') { 
+                               e.preventDefault();
+                            }
+                            parentDropdown.classList.toggle('active');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
             
             <!-- 2025 Publications -->
             <div class="year-section">
@@ -232,7 +508,7 @@
                     <div class="publication-authors"><span class="highlight">Fu, H.</span>, Li, K., Chen, Q., Tang, B., Deng, Z., Toh, Z., Zhu, R.*, Li, S.*</div>
                     <div class="publication-title">Accelerated design of Fenton-like copper single-atom catalysts by adaptive learning with genetic programming</div>
                     <div class="publication-journal">Angewandte Chemie</div>
-                    <div class="publication-info">e202505301. (IF = 16.1, Q1, Nature Index)</div>
+                    <div class="publication-info">e202505301. </div>
                 </div>
                 
                 <div class="publication-item">
@@ -251,49 +527,49 @@
                     <div class="publication-authors"><span class="highlight">Fu, H.</span>, Chen, G.*, Zhang, J., ... Wu, X.*, Duan, X.</div>
                     <div class="publication-title">Spatially separated electron donor-acceptor dual single-atom sites coordinating selective generation of hydroxyl radicals via Fenton-like catalysis</div>
                     <div class="publication-journal">Advanced Functional Materials</div>
-                    <div class="publication-info">2407243. (IF = 19.9, Q1, Nature Index)</div>
+                    <div class="publication-info">2407243. </div>
                 </div>
                 
                 <div class="publication-item">
                     <div class="publication-authors">Zhang, Y.#, <span class="highlight">Fu, H.#</span>, Chen, X., ... Tang, C.*, Hu, X.</div>
                     <div class="publication-title">Surface wettability control and electron transport regulation in zerovalent iron for enhanced removal of emerging polystyrene microplastics-heavy metal contaminants</div>
                     <div class="publication-journal">Water Research</div>
-                    <div class="publication-info">256, 121602. (IF = 12.8, Q1, Nature Index)</div>
+                    <div class="publication-info">256, 121602. </div>
                 </div>
                 
                 <div class="publication-item">
                     <div class="publication-authors"><span class="highlight">Fu, H.</span>, Chen, Q., Min, B., ... Chen, X., Ling, L.*</div>
                     <div class="publication-title">Oscillatory phase transition induced structural extension during iron oxide reduction</div>
                     <div class="publication-journal">Fundamental Research</div>
-                    <div class="publication-info">Online. (IF = 6.2, 国基委旗舰刊)</div>
+                    <div class="publication-info">Online. </div>
                 </div>
                 
                 <div class="publication-item">
                     <div class="publication-authors"><span class="highlight">Fu, H.</span>, Sheng, J., Tang, C., Zhang, W. X., Ling, L.*</div>
                     <div class="publication-title">Simultaneous removal of Cd (II) and phosphate by nanoscale zero-valent iron from solution: Co-sorption and implication of corrosion</div>
                     <div class="publication-journal">Chemosphere</div>
-                    <div class="publication-info">143160. (IF = 8.1, Q1)</div>
+                    <div class="publication-info">143160. </div>
                 </div>
                 
                 <div class="publication-item">
                     <div class="publication-authors">Sun, Y., Wang, Y., Zhang, J., ... Liang, W.*, <span class="highlight">Fu, H.*</span></div>
                     <div class="publication-title">Influence of temperature on wettability of micro hierarchical rough surfaces: A three-dimensional thermodynamic model</div>
                     <div class="publication-journal">Surfaces and Interfaces</div>
-                    <div class="publication-info">44, 103658. (IF = 6.2, Q2)</div>
+                    <div class="publication-info">44, 103658. </div>
                 </div>
                 
                 <div class="publication-item">
                     <div class="publication-authors">Wang, M., Deng, M., Zhao, G., Fan, Y., Liu, T., Huang, Y., Peng, L., <span class="highlight">Fu, H.*</span>, Fang, S.</div>
                     <div class="publication-title">Optimizing the Thiosulfate-Mediated Zerovalent Iron/Persulfate Activation Systems: Trade-off Between Fe(III)/Fe(II) Cycling and Quenching Effects in Environmental Remediation</div>
                     <div class="publication-journal">Journal of Environmental Management</div>
-                    <div class="publication-info">124817. (IF = 8.0, Q1)</div>
+                    <div class="publication-info">124817. </div>
                 </div>
                 
                 <div class="publication-item">
                     <div class="publication-authors">Li, M., Liu, H., Sun, Y., Xu, Z., Tian, H., <span class="highlight">Fu, H.*</span></div>
                     <div class="publication-title">The Transformation Path of Industrial Parks under the Goals of Carbon Peak and Neutrality in China</div>
                     <div class="publication-journal">Processes</div>
-                    <div class="publication-info">12(10), 2197. (IF = 3.35, Q2)</div>
+                    <div class="publication-info">12(10), 2197. </div>
                 </div>
                 
                 <div class="publication-item">
@@ -333,21 +609,21 @@
                     <div class="publication-authors"><span class="highlight">Fu, H.</span>, Li, K., Zhang, C., ... Li, S.*, Ling, L.*</div>
                     <div class="publication-title">Machine learning-assisted optimization of single-atom coordination environment for accelerated Fenton catalysis</div>
                     <div class="publication-journal">ACS Nano</div>
-                    <div class="publication-info">17, 13851-13860. (IF = 17.1, Q1, Nature Index)</div>
+                    <div class="publication-info">17, 13851-13860. </div>
                 </div>
                 
                 <div class="publication-item">
                     <div class="publication-authors">Chen, G.#, <span class="highlight">Fu, H.#</span>, Zou, Y., ... Shuai, Y.*, Zhou, Y.</div>
                     <div class="publication-title">A promising radiation thermal protection coating based on lamellar porous Ca-Cr co-doping Y₃NbO₇ ceramic</div>
                     <div class="publication-journal">Advanced Functional Materials</div>
-                    <div class="publication-info">2305650. (IF = 19.9, Q1, Nature Index)</div>
+                    <div class="publication-info">2305650. </div>
                 </div>
                 
                 <div class="publication-item">
                     <div class="publication-authors"><span class="highlight">Fu, H.</span>, Wei, J., Chen, G., ... Chen, X., Li, S.*, Ling, L.*</div>
                     <div class="publication-title">Axial coordination tuning Fe single-atom catalysts for boosting H₂O₂ activation</div>
                     <div class="publication-journal">Applied Catalysis B: Environmental</div>
-                    <div class="publication-info">321, 122012. (IF = 24.3, Q1)</div>
+                    <div class="publication-info">321, 122012. </div>
                 </div>
                 
                 <div class="publication-item">
@@ -394,21 +670,21 @@
                     <div class="publication-authors"><span class="highlight">Fu, H.</span>, Li, M., Xu, Q., Zhang, W., Li, S., Ling, L.*</div>
                     <div class="publication-title">Nitrogen doped carbon-distributed and nitrogen-stabilized ultrafine FeM (M = Pd, Pt, Au) nanoclusters for doxorubicin detoxification</div>
                     <div class="publication-journal">Applied Catalysis B: Environmental</div>
-                    <div class="publication-info">316, 121646. (IF = 24.3, Q1)</div>
+                    <div class="publication-info">316, 121646. </div>
                 </div>
                 
                 <div class="publication-item">
                     <div class="publication-authors"><span class="highlight">Fu, H.</span>, Gao, X., Zhang, X., Ling, L.*</div>
                     <div class="publication-title">Recent advances in nonclassical crystallization: Fundamentals, applications, and challenges</div>
                     <div class="publication-journal">Crystal Growth & Design</div>
-                    <div class="publication-info">22, 1476-1499. (Cover paper; IF = 4.08, Q1)</div>
+                    <div class="publication-info">22, 1476-1499. </div>
                 </div>
                 
                 <div class="publication-item">
                     <div class="publication-authors">Wang, J.#, <span class="highlight">Fu, H.#</span>, Xu, D., Mu, Z., Fu, R.*</div>
                     <div class="publication-title">The remediation mechanisms and effects of chemical amendments for heavy metals in contaminated soils: A review of literature</div>
                     <div class="publication-journal">Polish Journal of Environmental Studies</div>
-                    <div class="publication-info">5, 1-12. (IF = 1.87, Q4)</div>
+                    <div class="publication-info">5, 1-12. </div>
                 </div>
                 
                 <div class="publication-item">
@@ -427,21 +703,21 @@
                     <div class="publication-authors"><span class="highlight">Fu, H.</span>, Wang, R., Xu, Q., Tang, C., Zhang, W., Ling, L.*</div>
                     <div class="publication-title">Facile construction of Fe/Pd-doped graphite carbon nitride for effective removal of doxorubicin: Performance, mechanism, and degradation pathways</div>
                     <div class="publication-journal">Applied Catalysis B: Environmental</div>
-                    <div class="publication-info">299, 120686. (IF = 24.3, Q1)</div>
+                    <div class="publication-info">299, 120686. </div>
                 </div>
                 
                 <div class="publication-item">
                     <div class="publication-authors"><span class="highlight">Fu, H.</span>, Sheng, J., Ling, L.*</div>
                     <div class="publication-title">A new perspective of inorganic crystallization: Non-classical nucleation and growth</div>
                     <div class="publication-journal">Chinese Science Bulletin</div>
-                    <div class="publication-info">66, 4256-4267. (Q1)</div>
+                    <div class="publication-info">66, 4256-4267. </div>
                 </div>
                 
                 <div class="publication-item">
                     <div class="publication-authors"><span class="highlight">Fu, H.</span>, He, H., Zhu, R.*, Ling, L.*, Zhang, W., Chen, Q.</div>
                     <div class="publication-title">Phosphate modified magnetite@ferrihydrite as a magnetic adsorbent for Cd(II) removal from water, soil, and sediment</div>
                     <div class="publication-journal">Science of the Total Environment</div>
-                    <div class="publication-info">142846. (Highly Cited Paper; IF = 10.8, Q1)</div>
+                    <div class="publication-info">142846. </div>
                 </div>
                 
                 <div class="publication-item">
@@ -460,7 +736,7 @@
                     <div class="publication-authors"><span class="highlight">Fu, H.</span>, He, H., Usman, M., Chen, Q.*, Laipan, M., Zhu, R.</div>
                     <div class="publication-title">Facile synthesis of Al/Fe bimetallic (oxyhydr)oxide coated magnetite for efficient removal of fluoride from water</div>
                     <div class="publication-journal">Environmental Technology</div>
-                    <div class="publication-info">41(20): 2625-2636. (IF = 3.48, Q2)</div>
+                    <div class="publication-info">41(20): 2625-2636. </div>
                 </div>
                 
                 <div class="publication-item">
@@ -519,7 +795,7 @@
                     <div class="publication-authors"><span class="highlight">Fu, H.</span>, Yang, Y., Zhu, R.*, Usman, M., Chen, Q., He, H.</div>
                     <div class="publication-title">Superior adsorption of phosphate by ferrihydrite-coated and lanthanum-decorated magnetite</div>
                     <div class="publication-journal">Journal of Colloid and Interface Science</div>
-                    <div class="publication-info">530, 704-713. (Highly Cited Paper; IF = 9.97, Q1)</div>
+                    <div class="publication-info">530, 704-713. </div>
                 </div>
                 
                 <div class="publication-item">
