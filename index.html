@@ -282,60 +282,71 @@
             text-align: center;
         }
 
+        /* 研究兴趣区块的整体容器 (ul) */
         .research-interests ul {
-            list-style-type: none;
-            padding-left: 0;
-            background-color: var(--light-bg); /* 整个列表的背景 */
-            padding: 20px;                     /* 大框的内边距 */
-            border-radius: 8px;                /* 大框的圆角 */
-            border-left: 5px solid var(--secondary-color); /* 大框的左边框 */
+            list-style-type: none; /* 移除列表默认的项目符号 */
+            padding-left: 0;       /* 移除列表默认的左边内边距 */
+            
+            /* 如果您希望整个列表区域有一个统一的背景色和左侧强调线，可以保留这里的样式 */
+            /* 例如，让整个列表区域有一个浅色背景和一条总的蓝色左边框 */
+            /* background-color: var(--light-bg); */ /* 您可以取消这行注释来给整个ul加背景 */
+            /* padding: 10px; */ /* 如果ul有背景或边框，可能需要一点内边距 */
+            /* border-left: 5px solid var(--secondary-color); */ /* 如果希望是整个列表的左边框 */
         }
         
-        /* 每个研究兴趣点 (li) 的样式 */
+        /* 针对每一个研究兴趣点 (li 元素) 的样式，现在每个li将成为一个“框” */
         .research-interests li {
-            margin-bottom: 30px;  /* ★ 增大各项之间的垂直间距，因为现在每项内容更多了 */
-            padding-left: 5px;    /* （如果ul有左边框）内部内容距离ul左边框的微小间距 */
-            background-color: transparent !important; /* 确保 li 本身无背景 */
-            border: none !important;                  /* 确保 li 本身无边框 */
-            padding-top: 0;
-            padding-bottom: 0;
-            padding-right: 0;
-            border-radius: 0 !important;
+            display: block;          /* 确保每个li占据其父容器的全部可用宽度 */
+            background-color: #ffffff; /* 每个“框”的背景色 (例如白色) */
+            border: 1px solid var(--border-color, #e0e0e0); /* 每个“框”的边框 */
+            /* 如果希望每个框都有自己左边的强调线，而不是ul有总的强调线，可以在这里设置：*/
+            /* border-left: 5px solid var(--secondary-color); */
+            
+            border-radius: 8px;      /* “框”的圆角 */
+            padding: 20px;           /* “框”的内边距，让内容与边框有间距 */
+            margin-bottom: 25px;     /* ★ 每个“框”之间的垂直间距 */
+            
+            /* 清理掉之前li可能只作为文本行时的透明化样式 */
+            /* (如果之前的 !important 规则还在，可能需要在这里也用 !important 或者移除之前的) */
+            /* 例如，确保 background-color, border, border-radius 生效 */
+            transition: box-shadow 0.3s ease, transform 0.3s ease; /* 添加一些悬停过渡效果 */
+        }
+        
+        .research-interests li:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
         }
         
         .research-interests li:last-child {
-            margin-bottom: 0; /* 移除最后一个列表项的下外边距 */
+            margin-bottom: 0; /* 移除最后一个“框”的下外边距 */
         }
         
-        /* 新增：研究兴趣标题 (h4) 的样式 */
+        /* 研究兴趣标题 (h4) 的样式 */
         .research-interests li h4 {
-            font-size: 1.3em; /* 标题字体大小 */
+            font-size: 1.3em; 
             color: var(--primary-color);
-            margin-top: 0; /* 确保标题顶部没有多余间距 */
-            margin-bottom: 10px; /* 标题和下方描述之间的间距 */
+            margin-top: 0; 
+            margin-bottom: 12px; 
         }
         
-        /* 新增：研究兴趣描述文字 (p.research-description) 的样式 */
+        /* 研究兴趣描述文字 (p.research-description) 的样式 */
         .research-description {
-            font-size: 1em;   /* 描述文字大小 */
-            line-height: 1.7; /* 描述文字行高 */
+            font-size: 1em;  
+            line-height: 1.7; 
             color: var(--text-color);
-            margin-bottom: 15px; /* 描述文字和下方图片之间的间距 */
-            text-align: justify; /* 两端对齐，可选 */
+            margin-bottom: 18px; 
+            text-align: justify; 
         }
         
-        /* 新增：研究兴趣图片 (img.research-image) 的样式 */
+        /* 研究兴趣图片 (img.research-image) 的样式 */
         .research-image {
-            display: block;          /* 使图片成为块级元素，占据整行 */
-            width: 100%;             /* 图片宽度充满其容器 (li) */
-            max-width: 600px;        /* 可选：限制图片的最大宽度，避免过大 */
+            display: block;          /* 使图片成为块级元素，以便应用margin和width:100% */
+            width: 100%;             /* ★ 图片宽度充满其父容器 (li，即那个“框”) */
             height: auto;            /* 高度自动，保持图片原始比例 */
-            margin-top: 15px;        /* 图片与上方描述之间的间距 (如果描述的margin-bottom已足够，这里可以为0) */
-            margin-bottom: 10px;     /* 图片与下方（或下一个li的开始）的间距 */
+            margin-top: 15px;        /* 图片与上方描述之间的间距 */
             border-radius: 6px;      /* 给图片一点圆角 */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 可选：给图片加一点阴影 */
+            /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */ /* 可选：这个阴影可能与li的阴影重复，按需保留 */
         }
-
         /* Quote Section */
         .quote {
             padding: 15px 20px 15px 25px; /* 左边多留点空间给边框 */
@@ -833,25 +844,28 @@
                 <h2>Research Interests</h2>
                 <ul>
                     <li>
-                        <h4>AI-assisted discovery of catalysts for enhanced Fenton catalysis</h4>
+                        <h4>Data-driven construction of knowledge graphs for environmental catalysis</h4>
                         <p class="research-description">
-                            This research focuses on leveraging artificial intelligence and machine learning algorithms to accelerate the discovery and design of novel catalysts...
+                            My research focuses on constructing data-driven knowledge graphs for environmental catalysis, integrating principles from data science, catalysis, and earth sciences. By systematically mapping complex relationships 
+                            within catalytic and environmental data, and incorporating geoscience perspectives on pollutant dynamics and material-environment interactions, the aim is to significantly accelerate the rational design of high-performance, 
+                            eco-friendly catalysts. Ultimately, this work seeks to provide innovative solutions for tackling pressing environmental challenges and advancing global sustainability.
                         </p>
                         <img src="images/research_ai_catalysis.jpg" alt="AI and Catalysis illustration" class="research-image">
                     </li>
-            
                     <li>
                         <h4>Structural engineering of nanomaterials for catalytic upvaluing of emerging pollutants</h4>
                         <p class="research-description">
-                            develop advanced nanomaterials with precisely controlled structures and compositions for the efficient catalytic conversion of persistent organic pollutants...
+                            This research direction centers on the structural engineering of nanomaterials, focusing on their deliberate design and precise fabrication at the nanoscale. The primary research effort involves constructing advanced functional materials by meticulously
+                            tuning their size, morphology, crystal phase, defect sites, and surface chemistry to create specific catalytic active sites and optimized reaction microenvironments. These engineered nanomaterials are developed to efficiently catalyze the 
+                            transformation of emerging pollutants by either upvaluing them or degrading them into less toxic or benign substances, thereby addressing critical challenges in environmental pollution.
                         </p>
                         <img src="images/research_nanomaterials.jpg" alt="Nanomaterials structure" class="research-image">
                     </li>
-            
                     <li>
                         <h4>Investigation of particle growth mechanisms and shape anisotropy using Cs-TEM and liquid-cell TEM</h4>
                         <p class="research-description">
-                            Utilizing state-of-the-art transmission electron microscopy techniques, including Cs-corrected TEM and in-situ liquid-cell TEM, this research investigates...
+                            Utilizing state-of-the-art transmission electron microscopy techniques, including Cs-corrected TEM and in-situ liquid-cell TEM, our research aims to thoroughly elucidate the growth mechanisms of nanoparticles and the key factors controlling their shape anisotropy, 
+                            thereby providing an experimental basis and theoretical guidance for the precise synthesis and performance regulation of functional nanomaterials.
                         </p>
                         <img src="images/research_tem.jpg" alt="TEM imaging process" class="research-image">
                     </li>
