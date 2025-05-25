@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Haoyang Fu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #0052a3;
+        }
+        
+        .back-link i {
+            margin-right: 5px;
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .blog-intro {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #f0f7ff;
+        }
+        
+        .blog-content {
+            padding: 20px;
+        }
+        
+        .blog-date {
+            color: #0066cc;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .blog-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+        
+        .read-more:hover {
+            gap: 10px;
+        }
+        
+        .categories {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .categories h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .category-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .category-tag {
+            background-color: #f0f7ff;
+            color: #0066cc;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-tag:hover {
+            background-color: #0066cc;
+            color: white;
+        }
+        
+        .newsletter {
+            background: linear-gradient(135deg, #0066cc, #0052a3);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .newsletter h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .newsletter p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .newsletter-input {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+        }
+        
+        .newsletter-button {
+            padding: 12px 30px;
+            background-color: white;
+            color: #0066cc;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .newsletter-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .coming-soon {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .coming-soon i {
+            font-size: 60px;
+            color: #0066cc;
+            margin-bottom: 20px;
+        }
+        
+        .coming-soon h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .coming-soon p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter {
+                padding: 30px 20px;
+            }
+            
+            .newsletter h2 {
+                font-size: 24px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .newsletter-input {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <h1>Research Blog</h1>
+        <p class="blog-intro">Exploring the frontiers of machine learning, environmental catalysis, and materials science</p>
+        
+        <div class="categories">
+            <h2>Research Topics</h2>
+            <div class="category-list">
+                <div class="category-tag">Machine Learning</div>
+                <div class="category-tag">Fenton Catalysis</div>
+                <div class="category-tag">Single-Atom Catalysts</div>
+                <div class="category-tag">Environmental Materials</div>
+                <div class="category-tag">Crystallization</div>
+                <div class="category-tag">In-situ TEM</div>
+                <div class="category-tag">DFT Calculations</div>
+                <div class="category-tag">Nanomaterials</div>
+            </div>
+        </div>
+        
+        <div class="coming-soon">
+            <i class="fas fa-rocket"></i>
+            <h2>Blog Coming Soon!</h2>
+            <p>I'm excited to share my research insights, experimental findings, and thoughts on the latest developments in environmental catalysis and machine learning applications in materials science. Stay tuned for in-depth articles, tutorials, and research updates!</p>
+        </div>
+        
+        <div class="newsletter">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to get notified when new blog posts are published</p>
+            <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+                <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+        </div>
+        
+        <!-- Future blog posts will be displayed here -->
+        <!-- <div class="blog-grid">
+            <div class="blog-card">
+                <img src="blog-image-1.jpg" alt="Blog post image" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-date">January 15, 2025</div>
+                    <h3 class="blog-title">Machine Learning for Catalyst Design</h3>
+                    <p class="blog-excerpt">Exploring how genetic programming and adaptive learning can accelerate the discovery of single-atom catalysts...</p>
+                    <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    
+    <script>
+        function handleSubscribe(event) {
+            event.preventDefault();
+            alert('Thank you for subscribing! You will be notified when new blog posts are published.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
