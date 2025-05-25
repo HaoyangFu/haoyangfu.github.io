@@ -129,17 +129,7 @@
         }
 
         .dropdown:hover .dropdown-content {
-            /* 修改开始 */
-            opacity: 1; /* 鼠标悬停时：完全不透明 */
-            visibility: visible; /* 鼠标悬停时：可见 */
-            pointer-events: auto; /* 鼠标悬停时：可交互 */
-            transform: translateX(-50%) translateY(0); /* 移动到最终显示位置 */
-        
-            /* 为出现动画设置过渡，可以比消失动画快一些 */
-            transition: opacity 0.2s ease-in-out, 
-                        visibility 0s linear 0s, /* 可见性立即生效 */
-                        transform 0.2s ease-in-out;
-            /* 修改结束 */
+            display: block;
         }
 
         /* Main Content */
