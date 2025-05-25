@@ -217,52 +217,39 @@
         }
 
         /* Social Links */
-        /* Social Links */
-        .social-links {
-            display: flex;
-            gap: 12px;                     /* Your space between buttons */
-            justify-content: flex-start;   /* Keeps items left-aligned within each row */
-            margin-top: 25px;
-            flex-wrap: wrap;               /* Allows items to wrap to new lines */
+        .social-links {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-start;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 18px;
+            background-color: #f0f2f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.25);
+        }
+
+        .social-link i {
+            font-size: 1em;
+        }
         
-            /* --- KEY CHANGE IS HERE --- */
-            /* This width forces the wrapping to happen after the first two items.
-               The value (e.g., 380px) is an ESTIMATE. You will need to adjust it.
-               See instructions below on how to calculate/tweak this.
-            */
-            width: 380px; /* ADJUST THIS VALUE! */
-        
-            /* If you want this entire block of links to be centered on a wider page: */
-            /* margin-left: auto; */
-            /* margin-right: auto; */
-        }
-        
-        .social-link {
-            display: inline-flex;          /* Good, sizes link to its content */
-            align-items: center;           /* Vertically aligns icon and text */
-            gap: 6px;                      /* Your space between icon and text within a link */
-            padding: 10px 18px;            /* Your padding */
-            background-color: #f0f2f5;     /* Your background */
-            border: 1px solid #e0e0e0;     /* Your border */
-            border-radius: 8px;            /* Your border radius */
-            text-decoration: none;
-            color: var(--text-color);
-            transition: all 0.3s ease;
-            font-size: 0.9em;              /* Your font size */
-            white-space: nowrap;           /* RECOMMENDED: Prevents text inside a button from wrapping */
-        }
-        
-        .social-link:hover {
-            background-color: var(--secondary-color);
-            color: white;
-            border-color: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.25);
-        }
-        
-        .social-link i {
-            font-size: 1em; /* Your icon size, relative to the link's font size */
-        }
         /* Introduction */
         .intro {
             margin-bottom: 50px;
@@ -828,7 +815,7 @@
                             </a>
                             <a href="https://orcid.org/0000-0001-8755-1144" class="social-link">
                                 <i class="fab fa-orcid"></i>
-                                <span>ORCID</span>
+                                </span><span>ORCID</span></span>
                             </a>
                             <a href="https://www.linkedin.com/in/fu-haoyang-79a6b6242/" class="social-link">
                                 <i class="fab fa-linkedin"></i>
