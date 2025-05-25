@@ -49,7 +49,7 @@ My research focuses on applying AI to develop advanced catalytic materials for e
 
 * **Accelerated design of Fenton-like copper single-atom catalysts by adaptive learning with genetic programming** ([Angew. Chem. Int. Ed. 2025, e202505301](https://doi.org/10.1002/anie.202505301))
 * **Spatially separated electron donor-acceptor dual single-atom sites coordinating selective generation of hydroxyl radicals via Fenton-like catalysis** ([Adv. Funct. Mater. 2024, 2407243](https://doi.org/10.1002/adfm.202407243))
-* **Oscillatory phase transition induced structural extension during iron oxide reduction** ([Matter Struct. 2024, 1, 100003](https://www.sciencedirect.com/science/article/pii/S2667325824000037))
+* **Oscillatory phase transition induced structural extension during iron oxide reduction** ([Fundam. Res. 2024](https://www.sciencedirect.com/science/article/pii/S2667325824000037))
 * **Machine learning-assisted optimization of single-atom coordination environment for accelerated Fenton catalysis** ([ACS Nano 2023, 17, 10, 9782–9793](https://doi.org/10.1021/acsnano.3b02823))
 * **Axial coordination tuning Fe single-atom catalysts for boosting H2O2 activation** ([Appl. Catal. B: Environ. 2023, 320, 122012](https://doi.org/10.1016/j.apcatb.2022.122012))
 
