@@ -75,5 +75,4 @@ My research focuses on applying AI to develop advanced catalytic materials for e
     <img src="https://img.shields.io/badge/Website-%234A90E2.svg?logo=firefox&logoColor=white" alt="Personal Website"/>
   </a>
 </p>
----
-Thanks for visiting!
+
