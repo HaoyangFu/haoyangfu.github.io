@@ -283,22 +283,57 @@
         }
 
         .research-interests ul {
-            list-style: none;
+            list-style-type: none;
             padding-left: 0;
+            background-color: var(--light-bg); /* 整个列表的背景 */
+            padding: 20px;                     /* 大框的内边距 */
+            border-radius: 8px;                /* 大框的圆角 */
+            border-left: 5px solid var(--secondary-color); /* 大框的左边框 */
         }
-
+        
+        /* 每个研究兴趣点 (li) 的样式 */
         .research-interests li {
-            margin-bottom: 20px;
-            padding: 20px;
-            background-color: var(--light-bg);
-            border-radius: 8px;
-            border-left: 4px solid var(--secondary-color);
-            transition: all 0.3s ease;
+            margin-bottom: 30px;  /* ★ 增大各项之间的垂直间距，因为现在每项内容更多了 */
+            padding-left: 5px;    /* （如果ul有左边框）内部内容距离ul左边框的微小间距 */
+            background-color: transparent !important; /* 确保 li 本身无背景 */
+            border: none !important;                  /* 确保 li 本身无边框 */
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-right: 0;
+            border-radius: 0 !important;
         }
-
-        .research-interests li:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        
+        .research-interests li:last-child {
+            margin-bottom: 0; /* 移除最后一个列表项的下外边距 */
+        }
+        
+        /* 新增：研究兴趣标题 (h4) 的样式 */
+        .research-interests li h4 {
+            font-size: 1.3em; /* 标题字体大小 */
+            color: var(--primary-color);
+            margin-top: 0; /* 确保标题顶部没有多余间距 */
+            margin-bottom: 10px; /* 标题和下方描述之间的间距 */
+        }
+        
+        /* 新增：研究兴趣描述文字 (p.research-description) 的样式 */
+        .research-description {
+            font-size: 1em;   /* 描述文字大小 */
+            line-height: 1.7; /* 描述文字行高 */
+            color: var(--text-color);
+            margin-bottom: 15px; /* 描述文字和下方图片之间的间距 */
+            text-align: justify; /* 两端对齐，可选 */
+        }
+        
+        /* 新增：研究兴趣图片 (img.research-image) 的样式 */
+        .research-image {
+            display: block;          /* 使图片成为块级元素，占据整行 */
+            width: 100%;             /* 图片宽度充满其容器 (li) */
+            max-width: 600px;        /* 可选：限制图片的最大宽度，避免过大 */
+            height: auto;            /* 高度自动，保持图片原始比例 */
+            margin-top: 15px;        /* 图片与上方描述之间的间距 (如果描述的margin-bottom已足够，这里可以为0) */
+            margin-bottom: 10px;     /* 图片与下方（或下一个li的开始）的间距 */
+            border-radius: 6px;      /* 给图片一点圆角 */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 可选：给图片加一点阴影 */
         }
 
         /* Quote Section */
@@ -798,9 +833,27 @@
                 <h2>Research Interests</h2>
                 <ul>
                     <li>
-                        <p>AI-assisted discovery of catalysts for enhanced Fenton catalysis
-                        <p>Structural engineering of nanomaterials for catalytic upvaluing of emerging pollutants
-                        <p>Investigation of particle growth mechanisms and shape anisotropy using Cs-TEM and liquid-cell TEM
+                        <h4>AI-assisted discovery of catalysts for enhanced Fenton catalysis</h4>
+                        <p class="research-description">
+                            This research focuses on leveraging artificial intelligence and machine learning algorithms to accelerate the discovery and design of novel catalysts...
+                        </p>
+                        <img src="images/research_ai_catalysis.jpg" alt="AI and Catalysis illustration" class="research-image">
+                    </li>
+            
+                    <li>
+                        <h4>Structural engineering of nanomaterials for catalytic upvaluing of emerging pollutants</h4>
+                        <p class="research-description">
+                            develop advanced nanomaterials with precisely controlled structures and compositions for the efficient catalytic conversion of persistent organic pollutants...
+                        </p>
+                        <img src="images/research_nanomaterials.jpg" alt="Nanomaterials structure" class="research-image">
+                    </li>
+            
+                    <li>
+                        <h4>Investigation of particle growth mechanisms and shape anisotropy using Cs-TEM and liquid-cell TEM</h4>
+                        <p class="research-description">
+                            Utilizing state-of-the-art transmission electron microscopy techniques, including Cs-corrected TEM and in-situ liquid-cell TEM, this research investigates...
+                        </p>
+                        <img src="images/research_tem.jpg" alt="TEM imaging process" class="research-image">
                     </li>
                 </ul>
             </div>
