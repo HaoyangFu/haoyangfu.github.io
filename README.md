@@ -59,12 +59,23 @@ My research focuses on applying AI to develop advanced catalytic materials for e
 
 ## 🤝 Let's Connect!
 
-* [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fu-haoyang-79a6b6242/)
-* [![Gmail](https://img.shields.io/badge/Gmail-%23D14836.svg?logo=gmail&logoColor=white)](mailto:haoyang.fu@ntu.edu.sg)
-* [![ORCID](https://img.shields.io/badge/ORCID-%23A6CE39.svg?logo=ORCID&logoColor=white)](https://orcid.org/0000-0001-8755-1144)
-* [![GitHub](https://img.shields.io/badge/GitHub-%23181717.svg?logo=github&logoColor=white)](https://github.com/HaoyangFu)
-* [![Personal Website](https://img.shields.io/badge/Website-%234A90E2.svg?logo=firefox&logoColor=white)](https://haoyangfu.github.io/)
-
+<p align="left">
+  <a href="https://www.linkedin.com/in/fu-haoyang-79a6b6242/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>&nbsp;&nbsp;
+  <a href="mailto:haoyang.fu@ntu.edu.sg">
+    <img src="https://img.shields.io/badge/Gmail-%23D14836.svg?logo=gmail&logoColor=white" alt="Gmail"/>
+  </a>&nbsp;&nbsp;
+  <a href="https://orcid.org/0000-0001-8755-1144" target="_blank">
+    <img src="https://img.shields.io/badge/ORCID-%23A6CE39.svg?logo=ORCID&logoColor=white" alt="ORCID"/>
+  </a>&nbsp;&nbsp;
+  <a href="https://github.com/HaoyangFu" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-%23181717.svg?logo=github&logoColor=white" alt="GitHub"/>
+  </a>&nbsp;&nbsp;
+  <a href="https://haoyangfu.github.io/" target="_blank">
+    <img src="https://img.shields.io/badge/Website-%234A90E2.svg?logo=firefox&logoColor=white" alt="Personal Website"/>
+  </a>
+</p>
 ---
 
 Thanks for visiting!
