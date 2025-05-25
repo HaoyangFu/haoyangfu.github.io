@@ -139,13 +139,22 @@
         }
         
         .page-main-title { 
-            font-size: 36px;
-            margin-bottom: 40px;
-            color: var(--pub-title-color);
-            font-weight: 600;
-            text-align: left; 
+            font-size: 36px; /* 您可以根据图片 image_660ebc.png 中的感觉调整字号，例如 2.5em 或 2.8em */
+            margin-bottom: 20px; /* 减少与下方介绍文字的间距 */
+            color: var(--pub-title-color); /* 或 var(--primary-color) 如果希望更深一些 */
+            font-weight: 700; /* 可以尝试加粗一些，如 700 */
+            text-align: center; /* 改为居中 */
         }
         
+        .page-intro-sentence {
+            text-align: center;
+            color: #555; /* 比正文颜色稍浅的灰色，您可以调整 */
+            font-size: 1.1em; /* 比普通段落稍大一点，您可以调整 */
+            line-height: 1.7;
+            max-width: 700px; /* 限制最大宽度，使其在宽屏上不会太长 */
+            margin: 0 auto 40px auto; /* 上下外边距：0 auto 使其水平居中，下方40px外边距 */
+        }
+                
         .stats-container {
             display: flex;
             justify-content: space-around;
@@ -398,17 +407,19 @@
 
     <main>
         <div class="container">
-            <a href="index.html" class="back-link">
-                <i class="fas fa-arrow-left"></i> Back to Home
-            </a>
             
             <h1 class="page-main-title">Publications</h1>
             
+            <p class="page-intro-sentence">
+                Driven by curiosity and dedication, we produce tangible research results, ensure ethical data sharing in journals, and provide timely updates to our open-source methods online.
+            </p>
             <div class="stats-container">
                 <div class="stat-box">
                     <div class="stat-number">54</div>
                     <div class="stat-label">SCI Papers</div>
                 </div>
+                </div>
+            
                 <div class="stat-box">
                     <div class="stat-number">20</div>
                     <div class="stat-label">H-index</div>
