@@ -93,50 +93,19 @@
         }
         .dropdown { position: relative; }
         .dropdown-content {
-            display: none; /* Remains the same */
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            position: absolute;
-            background-color: white;
-            min-width: 180px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-            z-index: 1;
-            border-radius: 8px;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(10px);
-            overflow: hidden;
-            /* Make sure visibility transition allows opacity to fade out before display:none would kick back in if not hovering */
-            transition: opacity 0.3s ease-in-out,
-                        transform 0.3s ease-in-out,
-                        visibility 0s linear 0.3s; /* This makes it hidden after 0.3s (matching opacity) */
-        }
-        
-        .dropdown:hover .dropdown-content {
-            display: block; /* <-- ADD THIS LINE */
-            opacity: 1;
-            visibility: visible; /* Makes it visible immediately */
-            pointer-events: auto;
-            transform: translateX(-50%) translateY(0);
-            transition: opacity 0.2s ease-in-out,
-                        transform 0.2s ease-in-out,
-                        visibility 0s linear 0s; /* Make it visible right when hover starts */
-        }
+            display: none; position: absolute; background-color: white;
+            min-width: 180px; box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            z-index: 1; border-radius: 8px; top: 120%; left: 50%;
+            transform: translateX(-50%); overflow: hidden;
         }
         .dropdown-content a {
             color: var(--text-color); padding: 12px 20px; text-decoration: none;
             display: block; transition: all 0.3s ease;
         }
-        .dropdown-content a.active-dropdown-item { 
-            background-color: var(--light-bg);
-            color: var(--secondary-color);
-            font-weight: bold;
-        }
         .dropdown-content a:hover {
             background-color: var(--light-bg); color: var(--secondary-color);
         }
-        /* .dropdown:hover .dropdown-content { display: block; } /* Replaced by opacity/visibility for transition */
+        .dropdown:hover .dropdown-content { display: block; }
         .mobile-menu-toggle {
             display: none; background: none; border: none;
             color: white; font-size: 1.5em; cursor: pointer;
