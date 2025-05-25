@@ -1,0 +1,532 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Haoyang Fu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #0052a3;
+        }
+        
+        .back-link i {
+            margin-right: 5px;
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .publications-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e1e8ed;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: #0066cc;
+        }
+        
+        .year-section {
+            margin-bottom: 30px;
+        }
+        
+        .year-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f0f7ff;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .publication-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .publication-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .publication-authors {
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .publication-journal {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .publication-info {
+            color: #888;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        .highlight {
+            background-color: #ffeaa7;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        .patent-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #00a8ff;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .patent-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .stat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .publications-section {
+                padding: 20px;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <h1>Publications</h1>
+        
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-number">40+</div>
+                <div class="stat-label">SCI Papers</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">20</div>
+                <div class="stat-label">H-index</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">1611</div>
+                <div class="stat-label">Citations</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">9</div>
+                <div class="stat-label">Patents</div>
+            </div>
+        </div>
+        
+        <div class="publications-section">
+            <h2 class="section-title">
+                <i class="fas fa-file-alt"></i> Journal Publications
+            </h2>
+            
+            <!-- 2025 Publications -->
+            <div class="year-section">
+                <div class="year-title">2025</div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors"><span class="highlight">Fu, H.</span>, Li, K., Chen, Q., Tang, B., Deng, Z., Toh, Z., Zhu, R.*, Li, S.*</div>
+                    <div class="publication-title">Accelerated design of Fenton-like copper single-atom catalysts by adaptive learning with genetic programming</div>
+                    <div class="publication-journal">Angewandte Chemie</div>
+                    <div class="publication-info">e202505301. (IF = 16.1, Q1, Nature Index)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Xu, Q., <span class="highlight">Fu, H.</span>, Gu, J., Lei, L., and Ling, L.</div>
+                    <div class="publication-title">Catalytic detoxification of mitoxantrone by graphitic carbon nitride (g-C₃N₄) supported Fe/Pd bimetallic nanoparticles</div>
+                    <div class="publication-journal">Journal of Environmental Sciences</div>
+                    <div class="publication-info">148, 614-624.</div>
+                </div>
+            </div>
+            
+            <!-- 2024 Publications -->
+            <div class="year-section">
+                <div class="year-title">2024</div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors"><span class="highlight">Fu, H.</span>, Chen, G.*, Zhang, J., ... Wu, X.*, Duan, X.</div>
+                    <div class="publication-title">Spatially separated electron donor-acceptor dual single-atom sites coordinating selective generation of hydroxyl radicals via Fenton-like catalysis</div>
+                    <div class="publication-journal">Advanced Functional Materials</div>
+                    <div class="publication-info">2407243. (IF = 19.9, Q1, Nature Index)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Zhang, Y.#, <span class="highlight">Fu, H.#</span>, Chen, X., ... Tang, C.*, Hu, X.</div>
+                    <div class="publication-title">Surface wettability control and electron transport regulation in zerovalent iron for enhanced removal of emerging polystyrene microplastics-heavy metal contaminants</div>
+                    <div class="publication-journal">Water Research</div>
+                    <div class="publication-info">256, 121602. (IF = 12.8, Q1, Nature Index)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors"><span class="highlight">Fu, H.</span>, Chen, Q., Min, B., ... Chen, X., Ling, L.*</div>
+                    <div class="publication-title">Oscillatory phase transition induced structural extension during iron oxide reduction</div>
+                    <div class="publication-journal">Fundamental Research</div>
+                    <div class="publication-info">Online. (IF = 6.2, 国基委旗舰刊)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors"><span class="highlight">Fu, H.</span>, Sheng, J., Tang, C., Zhang, W. X., Ling, L.*</div>
+                    <div class="publication-title">Simultaneous removal of Cd (II) and phosphate by nanoscale zero-valent iron from solution: Co-sorption and implication of corrosion</div>
+                    <div class="publication-journal">Chemosphere</div>
+                    <div class="publication-info">143160. (IF = 8.1, Q1)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Sun, Y., Wang, Y., Zhang, J., ... Liang, W.*, <span class="highlight">Fu, H.*</span></div>
+                    <div class="publication-title">Influence of temperature on wettability of micro hierarchical rough surfaces: A three-dimensional thermodynamic model</div>
+                    <div class="publication-journal">Surfaces and Interfaces</div>
+                    <div class="publication-info">44, 103658. (IF = 6.2, Q2)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Wang, M., Deng, M., Zhao, G., Fan, Y., Liu, T., Huang, Y., Peng, L., <span class="highlight">Fu, H.*</span>, Fang, S.</div>
+                    <div class="publication-title">Optimizing the Thiosulfate-Mediated Zerovalent Iron/Persulfate Activation Systems: Trade-off Between Fe(III)/Fe(II) Cycling and Quenching Effects in Environmental Remediation</div>
+                    <div class="publication-journal">Journal of Environmental Management</div>
+                    <div class="publication-info">124817. (IF = 8.0, Q1)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Li, M., Liu, H., Sun, Y., Xu, Z., Tian, H., <span class="highlight">Fu, H.*</span></div>
+                    <div class="publication-title">The Transformation Path of Industrial Parks under the Goals of Carbon Peak and Neutrality in China</div>
+                    <div class="publication-journal">Processes</div>
+                    <div class="publication-info">12(10), 2197. (IF = 3.35, Q2)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Xu, M., Wang, R., <span class="highlight">Fu, H.</span>, Shi, Y., and Ling, L.</div>
+                    <div class="publication-title">Harmonizing the cyano-group and Na to enhance selective photocatalytic O₂ activation on carbon nitride for refractory pollutant degradation</div>
+                    <div class="publication-journal">Proceedings of the National Academy of Sciences</div>
+                    <div class="publication-info">121(12), e2318787121.</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Zhou, B., Liu, Q., Zheng, C., Ge, Y., Huang, L., <span class="highlight">Fu, H.</span>, and Fang, S.</div>
+                    <div class="publication-title">Enhanced Fenton-like catalysis via interfacial regulation of g-C₃N₄ for efficient aromatic organic pollutant degradation</div>
+                    <div class="publication-journal">Environmental Pollution</div>
+                    <div class="publication-info">124341.</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Wei, S., Chen, Q., Zhu, R., Du, J., Xie, J., <span class="highlight">Fu, H.</span>, ... and Zhu, J.</div>
+                    <div class="publication-title">One-pot synthesis of interconnected carbon-coated silicon nanosheets from clay minerals for high-performance lithium-ion battery anodes</div>
+                    <div class="publication-journal">Applied Clay Science</div>
+                    <div class="publication-info">254, 107388.</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Li, S., Hu, X., Zhou, J., Zheng, S., Ma, Q., <span class="highlight">Fu, H.</span>, ... and Deng, Z.</div>
+                    <div class="publication-title">Biomass-derived cellulose nanocrystals modified nZVI for enhanced tetrabromobisphenol A (TBBPA) removal</div>
+                    <div class="publication-journal">International Journal of Biological Macromolecules</div>
+                    <div class="publication-info">268, 131625.</div>
+                </div>
+            </div>
+            
+            <!-- 2023 Publications -->
+            <div class="year-section">
+                <div class="year-title">2023</div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors"><span class="highlight">Fu, H.</span>, Li, K., Zhang, C., ... Li, S.*, Ling, L.*</div>
+                    <div class="publication-title">Machine learning-assisted optimization of single-atom coordination environment for accelerated Fenton catalysis</div>
+                    <div class="publication-journal">ACS Nano</div>
+                    <div class="publication-info">17, 13851-13860. (IF = 17.1, Q1, Nature Index)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Chen, G.#, <span class="highlight">Fu, H.#</span>, Zou, Y., ... Shuai, Y.*, Zhou, Y.</div>
+                    <div class="publication-title">A promising radiation thermal protection coating based on lamellar porous Ca-Cr co-doping Y₃NbO₇ ceramic</div>
+                    <div class="publication-journal">Advanced Functional Materials</div>
+                    <div class="publication-info">2305650. (IF = 19.9, Q1, Nature Index)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors"><span class="highlight">Fu, H.</span>, Wei, J., Chen, G., ... Chen, X., Li, S.*, Ling, L.*</div>
+                    <div class="publication-title">Axial coordination tuning Fe single-atom catalysts for boosting H₂O₂ activation</div>
+                    <div class="publication-journal">Applied Catalysis B: Environmental</div>
+                    <div class="publication-info">321, 122012. (IF = 24.3, Q1)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Wang, Y., <span class="highlight">Fu, H.</span>, Lin, X., Liang, X., Yamaguchi, A., Zhu, J., ... and Zhu, R.</div>
+                    <div class="publication-title">Distribution of rare earth elements (REEs) in supergene environment around a typical ion adsorption-type REE deposit</div>
+                    <div class="publication-journal">Ore Geology Reviews</div>
+                    <div class="publication-info">105721.</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Chen, G., Min, B., <span class="highlight">Fu, H.</span>, Ma, S., Li, K., Wang, S., ... and Zhou, Y.</div>
+                    <div class="publication-title">Near unity broadband emissivity and ultralow thermal conductivity from yttrium niobate-based ceramics</div>
+                    <div class="publication-journal">Chemical Engineering Journal</div>
+                    <div class="publication-info">468, 143695.</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Wang, Y., He, L., Dong, S., <span class="highlight">Fu, H.</span>, Wang, G., ... and Zhu, J.</div>
+                    <div class="publication-title">Accumulation, translocation, and fractionation of rare earth elements (REEs) in fern species of hyperaccumulators and non-hyperaccumulators growing in urban areas</div>
+                    <div class="publication-journal">Science of The Total Environment</div>
+                    <div class="publication-info">905, 167344.</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Zhang, J., Xu, Q., Li, H., ... <span class="highlight">Fu, H.</span>, Yang, D., and Xie, Y.</div>
+                    <div class="publication-title">Self-powered electrodeposition system for sub-10 nm silver nanoparticles with high-efficiency antibacterial activity</div>
+                    <div class="publication-journal">The Journal of Physical Chemistry Letters</div>
+                    <div class="publication-info">13(29), 6721-6730.</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">王园园, <span class="highlight">傅浩洋</span>, 朱建喜*, 何宏平, 梁晓亮</div>
+                    <div class="publication-title">土壤-超积累植物体系中稀土元素的空间富集-分异特征与富集机理地球化学</div>
+                    <div class="publication-journal">地球化学</div>
+                    <div class="publication-info">已录用</div>
+                </div>
+            </div>
+            
+            <!-- 2022 Publications -->
+            <div class="year-section">
+                <div class="year-title">2022</div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors"><span class="highlight">Fu, H.</span>, Li, M., Xu, Q., Zhang, W., Li, S., Ling, L.*</div>
+                    <div class="publication-title">Nitrogen doped carbon-distributed and nitrogen-stabilized ultrafine FeM (M = Pd, Pt, Au) nanoclusters for doxorubicin detoxification</div>
+                    <div class="publication-journal">Applied Catalysis B: Environmental</div>
+                    <div class="publication-info">316, 121646. (IF = 24.3, Q1)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors"><span class="highlight">Fu, H.</span>, Gao, X., Zhang, X., Ling, L.*</div>
+                    <div class="publication-title">Recent advances in nonclassical crystallization: Fundamentals, applications, and challenges</div>
+                    <div class="publication-journal">Crystal Growth & Design</div>
+                    <div class="publication-info">22, 1476-1499. (Cover paper; IF = 4.08, Q1)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Wang, J.#, <span class="highlight">Fu, H.#</span>, Xu, D., Mu, Z., Fu, R.*</div>
+                    <div class="publication-title">The remediation mechanisms and effects of chemical amendments for heavy metals in contaminated soils: A review of literature</div>
+                    <div class="publication-journal">Polish Journal of Environmental Studies</div>
+                    <div class="publication-info">5, 1-12. (IF = 1.87, Q4)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">何宏飞, <span class="highlight">傅浩洋</span>, 朱润良, 毛鹏, 陈情泽</div>
+                    <div class="publication-title">坡缕石负载聚磷酸盐钝化剂制备及其降低红苋菜镉效能研究</div>
+                    <div class="publication-journal">地球化学</div>
+                    <div class="publication-info">3, 294-304.</div>
+                </div>
+            </div>
+            
+            <!-- 2021 Publications -->
+            <div class="year-section">
+                <div class="year-title">2021</div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors"><span class="highlight">Fu, H.</span>, Wang, R., Xu, Q., Tang, C., Zhang, W., Ling, L.*</div>
+                    <div class="publication-title">Facile construction of Fe/Pd-doped graphite carbon nitride for effective removal of doxorubicin: Performance, mechanism, and degradation pathways</div>
+                    <div class="publication-journal">Applied Catalysis B: Environmental</div>
+                    <div class="publication-info">299, 120686. (IF = 24.3, Q1)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors"><span class="highlight">Fu, H.</span>, Sheng, J., Ling, L.*</div>
+                    <div class="publication-title">A new perspective of inorganic crystallization: Non-classical nucleation and growth</div>
+                    <div class="publication-journal">Chinese Science Bulletin</div>
+                    <div class="publication-info">66, 4256-4267. (Q1)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors"><span class="highlight">Fu, H.</span>, He, H., Zhu, R.*, Ling, L.*, Zhang, W., Chen, Q.</div>
+                    <div class="publication-title">Phosphate modified magnetite@ferrihydrite as a magnetic adsorbent for Cd(II) removal from water, soil, and sediment</div>
+                    <div class="publication-journal">Science of the Total Environment</div>
+                    <div class="publication-info">142846. (Highly Cited Paper; IF = 10.8, Q1)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Liu, J., Zhu, R., Ma, L., <span class="highlight">Fu, H.</span>, Parker, S.C. and Molinari, M.</div>
+                    <div class="publication-title">Adsorption of phosphate and cadmium on iron (oxyhydr)oxides: A comparative study on ferrihydrite, goethite, and hematite</div>
+                    <div class="publication-journal">Geoderma</div>
+                    <div class="publication-info">383, 114799.</div>
+                </div>
+            </div>
+            
+            <!-- 2020 Publications -->
+            <div class="year-section">
+                <div class="year-title">2020</div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors"><span class="highlight">Fu, H.</span>, He, H., Usman, M., Chen, Q.*, Laipan, M., Zhu, R.</div>
+                    <div class="publication-title">Facile synthesis of Al/Fe bimetallic (oxyhydr)oxide coated magnetite for efficient removal of fluoride from water</div>
+                    <div class="publication-journal">Environmental Technology</div>
+                    <div class="publication-info">41(20): 2625-2636. (IF = 3.48, Q2)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Yang, Y., Zhu, R., Chen, Q., <span class="highlight">Fu, H.</span>, Zhu, J. and He, H.</div>
+                    <div class="publication-title">A novel multifunctional adsorbent synthesized by modifying acidified organo-montmorillonite with iron hydroxides</div>
+                    <div class="publication-journal">Applied Clay Science</div>
+                    <div class="publication-info">185, 105420.</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Zhu, R., Zhu, Y., Xian, H., Yan, L., <span class="highlight">Fu, H.</span> and He, H.</div>
+                    <div class="publication-title">CNTs/ferrihydrite as a highly efficient heterogeneous Fenton catalyst for the degradation of bisphenol A: the important role of CNTs in accelerating Fe (III)/Fe (II) cycling</div>
+                    <div class="publication-journal">Applied Catalysis B: Environmental</div>
+                    <div class="publication-info">270, 118891.</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">盛杰, <span class="highlight">傅浩洋</span>, 王伟, 张伟贤, 凌岚</div>
+                    <div class="publication-title">纳米零价铁的表征及改性研究进展</div>
+                    <div class="publication-journal">环境化学</div>
+                    <div class="publication-info">11, 2959-2978.</div>
+                </div>
+            </div>
+            
+            <!-- 2019 Publications -->
+            <div class="year-section">
+                <div class="year-title">2019</div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Chen, Q., Zhu, R., He, Q., ... <span class="highlight">Fu, H.</span>, Zhu, J. and He, H.</div>
+                    <div class="publication-title">In situ synthesis of a silicon flake/nitrogen-doped graphene-like carbon composite from organoclay for high-performance lithium-ion battery anodes</div>
+                    <div class="publication-journal">Chemical Communications</div>
+                    <div class="publication-info">55(18), 2644-2647.</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Chen, Q., Zhu, R., Deng, L., ... <span class="highlight">Fu, H.</span>, Zhang, J. and Wang, A.</div>
+                    <div class="publication-title">One-pot synthesis of novel hierarchically porous and hydrophobic Si/SiOx composite from natural palygorskite for benzene adsorption</div>
+                    <div class="publication-journal">Chemical Engineering Journal</div>
+                    <div class="publication-info">378, 122131.</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Mao, P., Zhuang, P., ... <span class="highlight">Fu, H.</span>, McBride, M.B., and Li, Z.</div>
+                    <div class="publication-title">Phosphate addition diminishes the efficacy of wollastonite in decreasing Cd uptake by rice (Oryza sativa L.) in paddy soil</div>
+                    <div class="publication-journal">Science of the Total Environment</div>
+                    <div class="publication-info">687, 441-450.</div>
+                </div>
+            </div>
+            
+            <!-- 2018 Publications -->
+            <div class="year-section">
+                <div class="year-title">2018</div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors"><span class="highlight">Fu, H.</span>, Yang, Y., Zhu, R.*, Usman, M., Chen, Q., He, H.</div>
+                    <div class="publication-title">Superior adsorption of phosphate by ferrihydrite-coated and lanthanum-decorated magnetite</div>
+                    <div class="publication-journal">Journal of Colloid and Interface Science</div>
+                    <div class="publication-info">530, 704-713. (Highly Cited Paper; IF = 9.97, Q1)</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Laipan, M., <span class="highlight">Fu, H.</span>, Zhu, R., Steel, R.M., and He, H.</div>
+                    <div class="publication-title">Calcined Mg/Al-LDH for acidic wastewater treatment: Simultaneous neutralization and contaminant removal</div>
+                    <div class="publication-journal">Applied Clay Science</div>
+                    <div class="publication-info">153, 46-53.</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-authors">Chen, Q., Zhu, R., <span class="highlight">
