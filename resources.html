@@ -171,12 +171,13 @@
         }
 
         .demo-placeholder {
-            background-color: var(--light-bg);
-            border: 1px dashed var(--border-color);
-            padding: 20px;
-            text-align: center;
+            background-color: var(--light-bg); /* 可以保留背景色，或者设为 transparent */
+            /* border: 1px dashed var(--border-color); */ /* 如果不需要虚线框，可以注释掉这行 */
+            padding: 5px; /* 减少内边距，或者设为0 */
+            /* text-align: center; */ /* 对于内部的 block 元素居中，已通过 img 的 margin: 0 auto 实现 */
             margin-top: 20px;
-            border-radius: 5px;
+            border-radius: 5px; /* 容器的圆角 */
+            overflow: hidden; /* 如果图片本身没有圆角，这可以帮助裁剪图片以匹配容器的圆角 */
         }
         .demo-placeholder p {
             color: #777;
@@ -294,43 +295,43 @@
 
                 <h3>Key Features</h3>
                 <ul>
-                    <li><strong>Batch Downloading:</strong> Import DOI links from a CSV file for automated batch downloading. [cite: 1]</li>
-                    <li><strong>Smart Publisher Recognition:</strong> Automatically identifies different publisher websites and applies appropriate download strategies. [cite: 1]</li>
-                    <li><strong>Proxy Support:</strong> Built-in support for remote access proxies, enabling access to restricted resources via institutional VPNs. [cite: 1]</li>
-                    <li><strong>Download Management:</strong> Supports pausing/resuming downloads and allows users to skip the current article at any time. [cite: 1]</li>
-                    <li><strong>File Organization:</strong> Automatically organizes downloaded files, using the DOI as a standard filename. [cite: 1]</li>
-                    <li><strong>Status Tracking:</strong> Tracks downloaded and undownloaded articles, supporting selective downloads. [cite: 1]</li>
-                    <li><strong>User Interface:</strong> Features an intuitive graphical user interface (GUI) that displays download progress and logs in real-time. [cite: 1]</li>
+                    <li><strong>Batch Downloading:</strong> Import DOI links from a CSV file for automated batch downloading. </li>
+                    <li><strong>Smart Publisher Recognition:</strong> Automatically identifies different publisher websites and applies appropriate download strategies. </li>
+                    <li><strong>Proxy Support:</strong> Built-in support for remote access proxies, enabling access to restricted resources via institutional VPNs. </li>
+                    <li><strong>Download Management:</strong> Supports pausing/resuming downloads and allows users to skip the current article at any time. </li>
+                    <li><strong>File Organization:</strong> Automatically organizes downloaded files, using the DOI as a standard filename. </li>
+                    <li><strong>Status Tracking:</strong> Tracks downloaded and undownloaded articles, supporting selective downloads. </li>
+                    <li><strong>User Interface:</strong> Features an intuitive graphical user interface (GUI) that displays download progress and logs in real-time. </li>
                 </ul>
 
                 <h3>Supported Publishers</h3>
-                <p>AuraLit supports a broad range of publishers, including Elsevier (ScienceDirect), Wiley, American Chemical Society (ACS), Nature, Science, Royal Society of Chemistry (RSC), MDPI, Frontiers, PNAS, and other general academic websites. [cite: 1]</p>
+                <p>AuraLit supports a broad range of publishers, including Elsevier (ScienceDirect), Wiley, American Chemical Society (ACS), Nature, Science, Royal Society of Chemistry (RSC), MDPI, Frontiers, PNAS, and other general academic websites. </p>
 
                 <h3>System Requirements</h3>
                 <ul>
-                    <li>Operating System: Windows, macOS, or Linux. [cite: 1]</li>
-                    <li>Browser: Google Chrome. [cite: 1]</li>
-                    <li>WebDriver: Chrome WebDriver (must match your Chrome version). [cite: 1]</li>
-                    <li>Access: Institutional credentials for accessing restricted resources. [cite: 1]</li>
+                    <li>Operating System: Windows, macOS, or Linux.</li>
+                    <li>Browser: Google Chrome. </li>
+                    <li>WebDriver: Chrome WebDriver (must match your Chrome version). </li>
+                    <li>Access: Institutional credentials for accessing restricted resources. </li>
                 </ul>
-                <p>Detailed installation and configuration guides (for `config.json` and DOI CSV format) are provided with the software. [cite: 1]</p>
+                <p>Detailed installation and configuration guides (for `config.json` and DOI CSV format) are provided with the software. </p>
 
                 <h3>Demo</h3>
                 <div class="demo-placeholder">
-                    <p>A demo of AuraLit will be available here soon. Stay tuned!</p>
-                    </div>
+                    <img src="images/demo.gif" alt="AuraLit Demo GIF" style="max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 3px;">
+                </div>
 
                 <h3>Development Team & Contact</h3>
                 <div class="contact-info">
-                    <p>AuraLit is developed by <strong>Li's group at NTU</strong>. [cite: 1]</p>
-                    <p>Core Developers:</p>
+                    <p>AuraLit is developed by <strong>Li's group at NTU</strong>. </p>
+                    <p>Core Developers(Names are listed alphabetically by first name.):</p>
                     <ul>
-                        <li>Haoyang Fu (傅浩洋) [cite: 1]</li>
-                        <li>Junbo Niu (牛俊博) [cite: 1]</li>
-                        <li>Zhongyi Deng (邓忠易) [cite: 1]</li>
+                        <li>Haoyang Fu (傅浩洋) </li>
+                        <li>Junbo Niu (牛俊博) </li>
+                        <li>Zhongyi Deng (邓忠易) </li>
                     </ul>
-                    <p>For inquiries, support, or contributions, please feel free to submit Pull Requests or Issues on the project's code repository (if applicable), or contact the development team. [cite: 5]</p>
-                     <p><em>Please ensure you have the right to access the academic resources you intend to download and adhere to all relevant laws, regulations, and publisher terms of use.</em> [cite: 5]</p>
+                    <p>For inquiries, support, or contributions, please feel free to submit Pull Requests or Issues on the project's code repository (if applicable), or contact the development team. </p>
+                     <p><em>Please ensure you have the right to access the academic resources you intend to download and adhere to all relevant laws, regulations, and publisher terms of use.</em> </p>
                 </div>
             </div>
 
