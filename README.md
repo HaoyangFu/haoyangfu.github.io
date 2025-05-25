@@ -40,7 +40,6 @@ My research focuses on applying AI to develop advanced catalytic materials for e
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=HaoyangFu&show_icons=true&locale=en&theme=radical" alt="Haoyang Fu's GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=HaoyangFu&layout=compact&locale=en&theme=radical" alt="Haoyang Fu's Top Languages" />
 </p>
 
 ---
@@ -77,5 +76,4 @@ My research focuses on applying AI to develop advanced catalytic materials for e
   </a>
 </p>
 ---
-
 Thanks for visiting!
