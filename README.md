@@ -6,7 +6,7 @@
 
 I'm **Haoyang Fu (傅浩洋)**, currently a **Research Fellow** at the School of Materials Science and Engineering, Nanyang Technological University (NTU), Singapore
 
-My research focuses on applying AI to develop advanced catalytic materials for green catalytic transformation and sustainable valorization of emerging pollutants. I am also interested in data-driven construction of knowledge graphs for environmental catalysis and structural engineering of nanomaterials.
+My research focuses on applying AI to develop advanced catalytic materials for green catalytic transformation and sustainable valorization of emerging pollutants. I am also interested in data-driven construction of knowledge graphs for environmental geochemistry and structural engineering of nanomaterials.
 
 ---
 
